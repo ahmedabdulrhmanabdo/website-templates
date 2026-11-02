@@ -14,7 +14,7 @@ $$('[data-count]').forEach(e=>cio.observe(e));
 function toast(m){let t=$('.toast');if(!t){t=document.createElement('div');t.className='toast';document.body.appendChild(t)}t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2200)}
 $$('form[data-form]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const m=$('.form-msg',f);
  if(!f.checkValidity()){f.reportValidity&&f.reportValidity();if(m)m.textContent='يرجى تعبئة الحقول المطلوبة بشكل صحيح.';return}
- if(m)m.textContent=f.dataset.ok||'تم الإرسال (نموذج تجريبي، لا تُرسل بيانات لأي خادم).';f.reset()}));
+ if(m)m.textContent=f.dataset.ok||'تم الإرسال (نموذج، لا تُرسل بيانات لأي خادم).';f.reset()}));
 $$('[data-copy]').forEach(b=>b.onclick=async()=>{try{await navigator.clipboard.writeText(b.dataset.copy);toast('تم نسخ الكود: '+b.dataset.copy)}catch{toast('الكود: '+b.dataset.copy)}});
 const qs=new URLSearchParams(location.search);
 const IC=(n,c='')=>`<svg class="i ${c}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
@@ -33,4 +33,4 @@ if($('#cf')){$('#ca').innerHTML=AREAS.map(a=>`<option value="${a[0]}">${a[2]}</o
  $('#cf').onsubmit=e=>{e.preventDefault();const m=$('#cm');
   if(!$('#cn').value.trim()||!/^05\d{8}$/.test($('#cp').value.trim())||!$('#cd').value.trim()){m.textContent='أكمل الاسم ورقم جوال صحيح (05xxxxxxxx) ونبذة عن الموضوع.';return}
   if(!$('#cg').checked){m.textContent='يرجى الموافقة على الإقرار أولًا.';return}
-  m.innerHTML=`تم استلام طلبك يا ${$('#cn').value.trim().replace(/</g,'')}.<br>الرقم المرجعي: <b>LW-${Math.random().toString(36).slice(2,7).toUpperCase()}</b> — سيتواصل معك المحامي المختص (نموذج تجريبي).`}}
+  m.innerHTML=`تم استلام طلبك يا ${$('#cn').value.trim().replace(/</g,'')}.<br>الرقم المرجعي: <b>LW-${Math.random().toString(36).slice(2,7).toUpperCase()}</b> — سيتواصل معك المحامي المختص (نموذج).`}}

@@ -14,7 +14,7 @@ $$('[data-count]').forEach(e=>cio.observe(e));
 function toast(m){let t=$('.toast');if(!t){t=document.createElement('div');t.className='toast';document.body.appendChild(t)}t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2200)}
 $$('form[data-form]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const m=$('.form-msg',f);
  if(!f.checkValidity()){f.reportValidity&&f.reportValidity();if(m)m.textContent='يرجى تعبئة الحقول المطلوبة بشكل صحيح.';return}
- if(m)m.textContent=f.dataset.ok||'تم الإرسال (نموذج تجريبي، لا تُرسل بيانات لأي خادم).';f.reset()}));
+ if(m)m.textContent=f.dataset.ok||'تم الإرسال (نموذج، لا تُرسل بيانات لأي خادم).';f.reset()}));
 $$('[data-copy]').forEach(b=>b.onclick=async()=>{try{await navigator.clipboard.writeText(b.dataset.copy);toast('تم نسخ الكود: '+b.dataset.copy)}catch{toast('الكود: '+b.dataset.copy)}});
 const qs=new URLSearchParams(location.search);
 const IC=(n,c='')=>`<svg class="i ${c}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
@@ -50,7 +50,7 @@ if($('#pd')){const p=PR.find(x=>x.id==qs.get('id'))||PR[0];document.title=p.t+' 
  <h2>الوصف</h2><p class="mut">${p.d}</p><h2>المميزات</h2><ul class="checks">${p.f.map(x=>`<li>${x}</li>`).join('')}</ul></div>
  <aside class="card"><span class="badge">${p.pu}</span> <span class="badge" style="background:var(--ink)">${p.ty}</span><div class="price" style="margin-top:8px">${money(p.p)} ${p.pu==='إيجار'?'<small class="mut" style="font-size:.9rem">/ سنويًا</small>':''}</div>
  <p class="mut" style="display:flex;gap:4px;align-items:center">${IC('pin')} ${p.di}، ${p.ci}</p><hr style="border:0;border-top:1px solid var(--line);margin:14px 0"><h3 style="margin-bottom:8px">اطلب معاينة</h3>
- <form class="f" data-form data-ok="تم استلام طلبك وسيتواصل معك المستشار (نموذج تجريبي)." novalidate><input placeholder="الاسم" required><input type="tel" placeholder="الجوال" required><select><option>صباحًا</option><option>ظهرًا</option><option>مساءً</option></select><button class="btn btn-block">إرسال الطلب</button><p class="form-msg" role="status"></p></form></aside></div>`;
+ <form class="f" data-form data-ok="تم استلام طلبك وسيتواصل معك المستشار (نموذج)." novalidate><input placeholder="الاسم" required><input type="tel" placeholder="الجوال" required><select><option>صباحًا</option><option>ظهرًا</option><option>مساءً</option></select><button class="btn btn-block">إرسال الطلب</button><p class="form-msg" role="status"></p></form></aside></div>`;
  if(p.pu==='بيع')$('#mp').value=p.p;
  $('#sim').innerHTML=PR.filter(x=>x.id!==p.id&&(x.ty===p.ty||x.ci===p.ci)).slice(0,3).map(card).join('')}
 if($('#mres')){const calc=()=>{const P=+$('#mp').value||0,d=Math.min(90,Math.max(0,+$('#md').value||0)),y=Math.max(1,+$('#my').value||1),r=(+$('#mr').value||0)/100;

@@ -14,7 +14,7 @@ $$('[data-count]').forEach(e=>cio.observe(e));
 function toast(m){let t=$('.toast');if(!t){t=document.createElement('div');t.className='toast';document.body.appendChild(t)}t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2200)}
 $$('form[data-form]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const m=$('.form-msg',f);
  if(!f.checkValidity()){f.reportValidity&&f.reportValidity();if(m)m.textContent='يرجى تعبئة الحقول المطلوبة بشكل صحيح.';return}
- if(m)m.textContent=f.dataset.ok||'تم الإرسال (نموذج تجريبي، لا تُرسل بيانات لأي خادم).';f.reset()}));
+ if(m)m.textContent=f.dataset.ok||'تم الإرسال (نموذج، لا تُرسل بيانات لأي خادم).';f.reset()}));
 $$('[data-copy]').forEach(b=>b.onclick=async()=>{try{await navigator.clipboard.writeText(b.dataset.copy);toast('تم نسخ الكود: '+b.dataset.copy)}catch{toast('الكود: '+b.dataset.copy)}});
 const qs=new URLSearchParams(location.search);
 const IC=(n,c='')=>`<svg class="i ${c}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
@@ -39,7 +39,7 @@ const PROJECTS=[
  f:['واجهة عربية وإنجليزية مع دعم RTL وLTR','إحصائيات واختصارات محاسبية سريعة','استضافة نماذج ERPNext داخل إطار مضبوط بتنسيق مبسّط','صفحة رئيسية /saas-home'],tech:['Frappe','ERPNext','JavaScript','CSS'],role:'تصميم وتطوير كامل',st:'مفتوح المصدر',link:GH+'accounting_shortcuts',ltxt:'عرض الكود على GitHub'},
 {id:5,t:'قوالب مواقع متعددة الصفحات',c:'web',i:'layout',col:'#3b4a78',s:'قوالب عربية: شركة وعيادة ومحاماة وعقارات ومطعم ومتجر ومعرض.',
  d:'قوالب جاهزة بـ HTML/CSS/JS بدون مكتبات، متجاوبة وتدعم RTL. كل قالب بعدة صفحات وتفاصيل وفلاتر ونماذج، ويمكن تخصيصه لعميلك.',
- f:['مواقع تعريفية وخدمية (شركة، عيادة، محاماة، عقارات)','مطعم بقائمة وحجز','متجر بسلة ودفع تجريبي','معرض أعمال (هذا الموقع)'],tech:['HTML','CSS','JavaScript','GitHub Pages'],role:'تصميم وتطوير كامل',st:'مفتوح المصدر',link:'https://ahmedabdulrhmanabdo.github.io/website-templates/',ltxt:'شاهد القوالب'},
+ f:['مواقع تعريفية وخدمية (شركة، عيادة، محاماة، عقارات)','مطعم بقائمة وحجز','متجر بسلة ودفع','معرض أعمال (هذا الموقع)'],tech:['HTML','CSS','JavaScript','GitHub Pages'],role:'تصميم وتطوير كامل',st:'مفتوح المصدر',link:'https://ahmedabdulrhmanabdo.github.io/website-templates/',ltxt:'شاهد القوالب'},
 {id:7,t:'نظام إدارة المستشفى',c:'erp',i:'bed',col:'#0e7490',s:'موقع ويب لإدارة المرضى والمواعيد والأسرّة والصيدلية والفواتير.',
  d:'نظام ويب يعمل مباشرة في المتصفح لإدارة مستشفى: سجلات المرضى، حجز المواعيد مع منع تعارض وقت الطبيب، خريطة الأسرّة (تنويم وخروج وتنظيف)، مخزون الصيدلية مع تنبيهات، وفواتير بضريبة 15%.',
  f:['لوحة تحكم بمؤشرات ورسوم ومواعيد اليوم','مرضى: إضافة وتعديل وحذف وبحث','مواعيد بمنع التعارض وتغيير الحالة','أسرّة وأقسام وصيدلية وفواتير قابلة للطباعة'],tech:['JavaScript','LocalStorage','HTML','CSS RTL'],role:'تصميم وتطوير كامل',st:'يعمل مباشرة',link:'../hospital-system/',ltxt:'جرّب النظام'},
