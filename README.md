@@ -1,6 +1,6 @@
-# نماذج تصاميم المواقع
+# أحمد عبدالرحمن — مبرمج Full-Stack
 
-قوالب عربية (RTL) متجاوبة بـ HTML/CSS/JavaScript بدون أي مكتبات. افتح `index.html` داخل أي مجلد أو شغّل `python3 -m http.server`.
+مشاريعي من 2016 إلى اليوم: مواقع وتطبيقات وألعاب عربية (RTL) بـ HTML/CSS/JavaScript بدون أي مكتبات، وأنظمة ومنصات على Frappe/ERPNext. افتح `index.html` داخل أي مجلد أو شغّل `python3 -m http.server`.
 
 | المجلد | الوصف |
 |---|---|
