@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>🐦 الطائر</title><style>*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+:root{--a:#7c3aed;--bg:#0f172a;--card:#1e293b;--ink:#f1f5f9;--mut:#94a3b8}
+body{font-family:system-ui,'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:start center;padding:20px 12px;line-height:1.6}
+.g{background:var(--card);border-radius:18px;padding:20px;width:min(440px,100%);text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+h1{font-size:1.4rem;margin-bottom:8px}.mut{color:var(--mut)}.st{margin:8px 0 14px;font-weight:700;min-height:1.6em}
+button{font:inherit;border:0;border-radius:10px;padding:10px 18px;background:var(--a);color:#fff;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(1.12)}input{font:inherit;padding:10px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:var(--ink);text-align:center}
+canvas{width:100%;max-width:320px;border-radius:12px;touch-action:manipulation}</style></head>
+<body><div class="g"><h1>🐦 الطائر</h1>
+<div class="st">النقاط: <span id="sc">0</span> | الأعلى: <span id="hi">0</span></div><canvas id="cv" width="320" height="480"></canvas><p class="mut" style="margin:8px 0">اضغط الشاشة أو المسافة للقفز</p>
+</div><script>
+
+const cv=document.getElementById('cv'),x=cv.getContext('2d'),W=320,H=480;let b,pipes,sc,run,fr,hi=0;
+try{hi=+localStorage.getItem('flp')||0}catch{}document.getElementById('hi').textContent=hi;
+function init(){b={y:220,v:0};pipes=[];sc=0;fr=0;run=false;document.getElementById('sc').textContent=0;draw()}
+function flap(){if(!run){run=true;loop()}b.v=-6.2}
+function loop(){if(!run)return;fr++;b.v+=.38;b.y+=b.v;
+ if(fr%95===1)pipes.push({x:W,g:110+Math.random()*(H-300),p:false});
+ pipes.forEach(p=>p.x-=2.2);pipes=pipes.filter(p=>p.x>-60);
+ for(const p of pipes){if(!p.p&&p.x+50<70){p.p=true;sc++;document.getElementById('sc').textContent=sc}
+  if(70+13>p.x&&70-13<p.x+50&&(b.y-13<p.g||b.y+13>p.g+110))return die()}
+ if(b.y>H-20||b.y<0)return die();draw();requestAnimationFrame(loop)}
+function die(){run=false;if(sc>hi){hi=sc;try{localStorage.setItem('flp',hi)}catch{}document.getElementById('hi').textContent=hi}
+ draw();x.fillStyle='rgba(0,0,0,.55)';x.fillRect(0,0,W,H);x.fillStyle='#fff';x.font='bold 26px sans-serif';x.textAlign='center';x.fillText('انتهت اللعبة',W/2,H/2);x.font='16px sans-serif';x.fillText('اضغط للعب مرة أخرى',W/2,H/2+30);setTimeout(()=>{dead=true},250)}
+let dead=false;
+function draw(){x.fillStyle='#38bdf8';x.fillRect(0,0,W,H);x.fillStyle='#16a34a';x.fillRect(0,H-20,W,20);
+ pipes.forEach(p=>{x.fillStyle='#15803d';x.fillRect(p.x,0,50,p.g);x.fillRect(p.x,p.g+110,50,H);x.fillStyle='#166534';x.fillRect(p.x-3,p.g-16,56,16);x.fillRect(p.x-3,p.g+110,56,16)});
+ x.font='28px serif';x.textAlign='center';x.fillText('🐦',70,b.y+10)}
+function act(){if(dead){dead=false;init();return}flap()}
+cv.onclick=act;document.onkeydown=e=>{if(e.code==='Space'){e.preventDefault();act()}};init();
+</script></body></html>

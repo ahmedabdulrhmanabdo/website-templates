@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>💣 كاسحة الألغام</title><style>*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+:root{--a:#7c3aed;--bg:#0f172a;--card:#1e293b;--ink:#f1f5f9;--mut:#94a3b8}
+body{font-family:system-ui,'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:start center;padding:20px 12px;line-height:1.6}
+.g{background:var(--card);border-radius:18px;padding:20px;width:min(440px,100%);text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+h1{font-size:1.4rem;margin-bottom:8px}.mut{color:var(--mut)}.st{margin:8px 0 14px;font-weight:700;min-height:1.6em}
+button{font:inherit;border:0;border-radius:10px;padding:10px 18px;background:var(--a);color:#fff;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(1.12)}input{font:inherit;padding:10px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:var(--ink);text-align:center}
+#b{display:grid;grid-template-columns:repeat(9,1fr);gap:3px;direction:ltr;touch-action:manipulation}.x{padding:0;aspect-ratio:1;background:#475569;font-size:1rem;font-weight:800}.x.o{background:#1e293b;cursor:default}</style></head>
+<body><div class="g"><h1>💣 كاسحة الألغام</h1>
+<div class="st">💣 <span id="m">10</span> | ⏱️ <span id="tm">0</span></div><div id="b"></div><p class="mut" style="margin:8px 0">نقرة: كشف — نقرة مطولة أو يمين: علَم 🚩</p><div class="st" id="s2"></div><button id="r">لعبة جديدة</button>
+</div><script>
+
+const $=i=>document.getElementById(i),N=9,M=10;let g,over,first,flags,tmr,t,opened;
+function init(){g=Array.from({length:N*N},()=>({m:0,o:0,f:0,n:0}));over=false;first=true;flags=0;opened=0;t=0;clearInterval(tmr);$('tm').textContent=0;$('s2').textContent='';draw()}
+const nb=i=>{const r=Math.floor(i/N),c=i%N,o=[];for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++){if(!a&&!b)continue;const y=r+a,x=c+b;if(y>=0&&y<N&&x>=0&&x<N)o.push(y*N+x)}return o};
+function place(safe){let k=0;while(k<M){const i=Math.floor(Math.random()*N*N);if(i===safe||nb(safe).includes(i)||g[i].m)continue;g[i].m=1;k++}g.forEach((c,i)=>c.n=nb(i).filter(j=>g[j].m).length)}
+function reveal(i){const c=g[i];if(c.o||c.f)return;c.o=1;opened++;if(c.m)return lose();if(!c.n)nb(i).forEach(reveal)}
+function lose(){over=true;clearInterval(tmr);g.forEach(c=>{if(c.m)c.o=1});$('s2').textContent='💥 خسرت'}
+function click(i,flag){if(over)return;if(flag){if(!g[i].o){g[i].f^=1;flags+=g[i].f?1:-1}}else{if(first){first=false;place(i);tmr=setInterval(()=>$('tm').textContent=++t,1000)}reveal(i)}
+ if(!over&&opened===N*N-M){over=true;clearInterval(tmr);$('s2').textContent='🎉 فزت!'}draw()}
+const COL=['','#60a5fa','#4ade80','#f87171','#a78bfa','#fb923c','#22d3ee','#fff','#999'];
+function draw(){$('m').textContent=M-flags;$('b').innerHTML=g.map((c,i)=>`<button class="x ${c.o?'o':''}" data-i="${i}" style="color:${COL[c.n]}">${c.o?(c.m?'💣':c.n||''):c.f?'🚩':''}</button>`).join('')}
+let press;$('b').oncontextmenu=e=>{e.preventDefault();const i=e.target.dataset.i;if(i!==undefined)click(+i,1)};
+$('b').onpointerdown=e=>{const i=e.target.dataset.i;if(i===undefined)return;press=setTimeout(()=>{press='long';click(+i,1)},450)};
+$('b').onpointerup=e=>{const i=e.target.dataset.i;if(press==='long'){press=null;return}clearTimeout(press);press=null;if(i!==undefined&&e.button===0)click(+i,0)};
+$('r').onclick=init;init();
+</script></body></html>

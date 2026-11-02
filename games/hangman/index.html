@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>🔤 تخمين الكلمة</title><style>*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+:root{--a:#7c3aed;--bg:#0f172a;--card:#1e293b;--ink:#f1f5f9;--mut:#94a3b8}
+body{font-family:system-ui,'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:start center;padding:20px 12px;line-height:1.6}
+.g{background:var(--card);border-radius:18px;padding:20px;width:min(440px,100%);text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+h1{font-size:1.4rem;margin-bottom:8px}.mut{color:var(--mut)}.st{margin:8px 0 14px;font-weight:700;min-height:1.6em}
+button{font:inherit;border:0;border-radius:10px;padding:10px 18px;background:var(--a);color:#fff;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(1.12)}input{font:inherit;padding:10px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:var(--ink);text-align:center}
+.w{font-size:2.2rem;letter-spacing:4px;margin:10px 0 16px;direction:rtl}#kb{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.lt{padding:8px 0;background:#334155}.lt:disabled{opacity:.3;cursor:default}</style></head>
+<body><div class="g"><h1>🔤 تخمين الكلمة</h1>
+<div class="st" id="st"></div><div id="fig" style="font-size:2.6rem;min-height:3.6rem"></div><div id="w" class="w"></div><div id="kb"></div><div style="margin-top:12px"><button id="r">كلمة جديدة</button></div>
+</div><script>
+
+const $=i=>document.getElementById(i);
+const WORDS=[['حيوان','أسد'],['حيوان','زرافة'],['حيوان','دلفين'],['فاكهة','برتقال'],['فاكهة','عنب'],['فاكهة','رمان'],['دولة','السعودية'],['دولة','مصر'],['دولة','المغرب'],['مدينة','الرياض'],['مدينة','دبي'],['شيء','حاسوب'],['شيء','مكتبة'],['شيء','سيارة'],['طعام','كبسة'],['طعام','شاورما']];
+const L='ابتثجحخدذرزسشصضطظعغفقكلمنهوي'.split('');const STAGES=['😀','😐','😕','😟','😨','😱','💀'];
+let w,cat,got,wrong,over;
+function init(){[cat,w]=WORDS[Math.floor(Math.random()*WORDS.length)];got=new Set;wrong=0;over=false;draw()}
+const norm=c=>c==='أ'||c==='إ'||c==='آ'?'ا':c==='ة'?'ه':c==='ى'?'ي':c;
+function draw(){const done=[...w].every(c=>got.has(norm(c)));
+ $('w').textContent=[...w].map(c=>got.has(norm(c))?c:'_').join(' ');
+ $('fig').textContent=STAGES[wrong];
+ if(done){over=true;$('st').textContent='🎉 أحسنت! الكلمة: '+w}else if(wrong>=6){over=true;$('st').textContent='😢 الكلمة كانت: '+w}else $('st').textContent=`التصنيف: ${cat} — الأخطاء: ${wrong}/6`;
+ $('kb').innerHTML=L.map(c=>`<button class="lt" data-c="${c}" ${got.has(c)||over||$('kb').dataset['x'+c]?'disabled':''}>${c}</button>`).join('')}
+const used=new Set;
+$('kb').onclick=e=>{const c=e.target.dataset.c;if(!c||over||used.has(c))return;used.add(c);
+ if([...w].some(x=>norm(x)===c)){got.add(c)}else wrong++;draw();[...$('kb').children].forEach(b=>{if(used.has(b.dataset.c))b.disabled=true})};
+const r0=init;init=function(){used.clear();r0()};
+$('r').onclick=init;init();
+</script></body></html>

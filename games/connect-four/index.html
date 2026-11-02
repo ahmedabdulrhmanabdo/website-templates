@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>🔴 أربعة في صف</title><style>*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+:root{--a:#7c3aed;--bg:#0f172a;--card:#1e293b;--ink:#f1f5f9;--mut:#94a3b8}
+body{font-family:system-ui,'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:start center;padding:20px 12px;line-height:1.6}
+.g{background:var(--card);border-radius:18px;padding:20px;width:min(440px,100%);text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+h1{font-size:1.4rem;margin-bottom:8px}.mut{color:var(--mut)}.st{margin:8px 0 14px;font-weight:700;min-height:1.6em}
+button{font:inherit;border:0;border-radius:10px;padding:10px 18px;background:var(--a);color:#fff;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(1.12)}input{font:inherit;padding:10px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:var(--ink);text-align:center}
+#b{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;background:#1d4ed8;padding:8px;border-radius:12px;direction:ltr}.k{padding:0;aspect-ratio:1;background:transparent;font-size:1.7rem;line-height:1}.k:hover{filter:none;background:#1e40af}</style></head>
+<body><div class="g"><h1>🔴 أربعة في صف</h1>
+<p class="mut">أنت 🔴 والكمبيوتر 🟡 — اضغط على العمود</p><div id="st" class="st"></div><div id="b"></div><div style="margin-top:14px"><button id="r">لعبة جديدة</button></div>
+</div><script>
+
+const $=i=>document.getElementById(i),R=6,C=7;let B,over,turn;
+const at=(r,c)=>r>=0&&r<R&&c>=0&&c<C?B[r][c]:0;
+function wins(p,b=B){for(let r=0;r<R;r++)for(let c=0;c<C;c++)for(const[dr,dc]of[[0,1],[1,0],[1,1],[1,-1]]){let k=0;for(;k<4;k++){const y=r+dr*k,x=c+dc*k;if(y<0||y>=R||x<0||x>=C||b[y][x]!==p)break}if(k===4)return true}return false}
+function drop(c,p){for(let r=R-1;r>=0;r--)if(!B[r][c]){B[r][c]=p;return r}return -1}
+function undo(c){for(let r=0;r<R;r++)if(B[r][c]){B[r][c]=0;return}}
+function ai(){const ok=[...Array(C).keys()].filter(c=>!B[0][c]);
+ for(const c of ok){drop(c,2);const w=wins(2);undo(c);if(w)return c}
+ for(const c of ok){drop(c,1);const w=wins(1);undo(c);if(w)return c}
+ const pref=[3,2,4,1,5,0,6].filter(c=>ok.includes(c));
+ for(const c of pref){drop(c,2);let bad=false;if(B[0][c]===0){drop(c,1);bad=wins(1);undo(c)}undo(c);if(!bad)return c}
+ return pref[0]}
+function draw(){$('b').innerHTML=B.map((row,r)=>row.map((v,c)=>`<button class="k" data-c="${c}">${v===1?'🔴':v===2?'🟡':'⚪'}</button>`).join('')).join('')}
+function check(p){if(wins(p)){over=true;$('st').textContent=p===1?'🎉 فزت!':'😅 فاز الكمبيوتر';return true}if(B[0].every(Boolean)){over=true;$('st').textContent='🤝 تعادل';return true}return false}
+function init(){B=Array.from({length:R},()=>Array(C).fill(0));over=false;$('st').textContent='دورك';draw()}
+$('b').onclick=e=>{const c=e.target.dataset.c;if(over||c===undefined||B[0][c])return;drop(+c,1);draw();if(check(1))return;
+ const m=ai();drop(m,2);draw();check(2)};
+$('r').onclick=init;init();
+</script></body></html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>🎵 لعبة سيمون</title><style>*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+:root{--a:#7c3aed;--bg:#0f172a;--card:#1e293b;--ink:#f1f5f9;--mut:#94a3b8}
+body{font-family:system-ui,'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:start center;padding:20px 12px;line-height:1.6}
+.g{background:var(--card);border-radius:18px;padding:20px;width:min(440px,100%);text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+h1{font-size:1.4rem;margin-bottom:8px}.mut{color:var(--mut)}.st{margin:8px 0 14px;font-weight:700;min-height:1.6em}
+button{font:inherit;border:0;border-radius:10px;padding:10px 18px;background:var(--a);color:#fff;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(1.12)}input{font:inherit;padding:10px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:var(--ink);text-align:center}
+#p{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:280px;margin:auto}.q{height:120px;background:var(--c);opacity:.45;border-radius:18px;transition:.1s}.q.on{opacity:1;transform:scale(1.04);box-shadow:0 0 24px var(--c)}</style></head>
+<body><div class="g"><h1>🎵 لعبة سيمون</h1>
+<div class="st" id="st">اضغط ابدأ</div><div id="p"><button class="q" data-i="0" style="--c:#ef4444"></button><button class="q" data-i="1" style="--c:#22c55e"></button><button class="q" data-i="2" style="--c:#eab308"></button><button class="q" data-i="3" style="--c:#3b82f6"></button></div><div style="margin-top:14px"><button id="s">ابدأ</button></div><p class="mut" id="hi"></p>
+</div><script>
+
+const $=i=>document.getElementById(i),Q=[...document.querySelectorAll('.q')];let seq=[],pos=0,busy=true,best=0;
+try{best=+localStorage.getItem('simon')||0}catch{}$('hi').textContent='أفضل مستوى: '+best;
+let ac;const tone=i=>{try{ac=ac||new AudioContext();const o=ac.createOscillator(),g=ac.createGain();o.frequency.value=[261,329,392,523][i];g.gain.value=.15;o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+.25)}catch{}};
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+async function flash(i){Q[i].classList.add('on');tone(i);await sleep(350);Q[i].classList.remove('on');await sleep(150)}
+async function play(){busy=true;$('st').textContent=`المستوى ${seq.length}: شاهد`;await sleep(500);for(const i of seq)await flash(i);busy=false;pos=0;$('st').textContent='دورك!'}
+function next(){seq.push(Math.floor(Math.random()*4));play()}
+$('s').onclick=()=>{seq=[];next()};
+$('p').onclick=async e=>{const i=e.target.dataset.i;if(busy||i===undefined)return;await flash(+i);
+ if(+i!==seq[pos]){busy=true;const lv=seq.length-1;$('st').textContent=`❌ أخطأت! وصلت للمستوى ${lv}`;if(lv>best){best=lv;try{localStorage.setItem('simon',best)}catch{}$('hi').textContent='أفضل مستوى: '+best}return}
+ if(++pos===seq.length){busy=true;await sleep(600);next()}};
+</script></body></html>
