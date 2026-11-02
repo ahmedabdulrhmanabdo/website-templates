@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مطعم نموذج | قائمة الطعام والحجز</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header"><div class="container nav">
+  <a class="logo" href="#top">🍽️ مذاق</a>
+  <nav><a href="#menu">القائمة</a><a href="#about">عنّا</a><a href="#book" class="btn sm">احجز طاولة</a></nav>
+</div></header>
+<main id="top">
+<section class="hero"><div class="container">
+  <p class="kicker">مطبخ عربي أصيل</p>
+  <h1>نكهات تُحكى<br>وطعم لا يُنسى</h1>
+  <a href="#menu" class="btn">استعرض القائمة</a>
+</div></section>
+
+<section class="section" id="menu"><div class="container">
+  <h2>قائمة الطعام</h2>
+  <div class="tabs" role="tablist">
+    <button class="tab active" data-cat="all">الكل</button>
+    <button class="tab" data-cat="main">الأطباق الرئيسية</button>
+    <button class="tab" data-cat="starter">المقبلات</button>
+    <button class="tab" data-cat="dessert">الحلويات</button>
+    <button class="tab" data-cat="drink">المشروبات</button>
+  </div>
+  <div class="menu-grid" id="menu-grid"></div>
+</div></section>
+
+<section class="section alt" id="about"><div class="container two">
+  <div><h2 class="l">عنّا</h2><p>نقدّم أطباقًا محضّرة يوميًا من مكونات طازجة ووصفات توارثناها عبر الأجيال، في أجواء دافئة تناسب العائلة والأصدقاء.</p></div>
+  <div class="hours"><h3>ساعات العمل</h3><p>السبت – الخميس: 12 ظهرًا – 12 ليلًا</p><p>الجمعة: 1 ظهرًا – 1 صباحًا</p></div>
+</div></section>
+
+<section class="section" id="book"><div class="container narrow">
+  <h2>احجز طاولتك</h2>
+  <form id="book-form" novalidate>
+    <label>الاسم<input name="name" required></label>
+    <div class="row"><label>التاريخ<input type="date" name="date" required></label>
+    <label>عدد الأشخاص<input type="number" name="guests" min="1" max="20" value="2" required></label></div>
+    <button class="btn" type="submit">تأكيد الحجز</button>
+    <p class="msg" role="status"></p>
+  </form>
+</div></section>
+</main>
+<footer class="footer">© <span id="year"></span> مطعم مذاق — قالب تجريبي</footer>
+<script src="script.js"></script>
+</body></html>

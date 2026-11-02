@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>متجر نموذج | تسوّق بسهولة</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header"><div class="container nav">
+  <a class="logo" href="#">🛍️ متجري</a>
+  <input id="search" type="search" placeholder="ابحث عن منتج…" aria-label="بحث">
+  <button id="cart-btn" class="cart-btn" aria-label="السلة">🛒 <b id="count">0</b></button>
+</div></header>
+<main>
+<section class="banner"><div class="container"><h1>تخفيضات الموسم</h1><p>خصم يصل إلى 30% على منتجات مختارة</p></div></section>
+<section class="container shop">
+  <div class="toolbar">
+    <div class="cats" id="cats"></div>
+    <select id="sort" aria-label="ترتيب">
+      <option value="">الترتيب الافتراضي</option><option value="asc">السعر: الأقل أولًا</option><option value="desc">السعر: الأعلى أولًا</option>
+    </select>
+  </div>
+  <div class="grid" id="grid"></div>
+  <p id="empty" class="empty" hidden>لا توجد منتجات مطابقة.</p>
+</section>
+</main>
+
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="d-head"><h2>سلة التسوق</h2><button id="close" aria-label="إغلاق">✕</button></div>
+  <div id="items" class="items"></div>
+  <div class="d-foot"><div class="total"><span>الإجمالي</span><strong id="total">0</strong></div>
+  <button class="btn" id="checkout">إتمام الشراء</button><p id="cmsg" class="msg" role="status"></p></div>
+</aside>
+<div class="overlay" id="overlay" hidden></div>
+<script src="script.js"></script>
+</body></html>
