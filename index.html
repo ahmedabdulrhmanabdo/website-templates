@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>مشاريعي | قوالب وتطبيقات وألعاب</title>
+<meta name="description" content="قوالب مواقع عربية وتطبيقات ويب صغيرة وألعاب بسيطة.">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--a:#4f46e5;--bg:#f1f5f9;--ink:#0f172a;--mut:#64748b}
+body{font-family:'Cairo',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+header{background:linear-gradient(135deg,#312e81,#4f46e5 60%,#06b6d4);color:#fff;text-align:center;padding:64px 16px}
+header h1{font-size:clamp(1.8rem,5vw,2.8rem);font-weight:800}header p{opacity:.9;margin-top:6px}
+main{width:min(1000px,100% - 32px);margin:-30px auto 50px}
+h2{margin:36px 0 14px;font-size:1.3rem}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.c{background:#fff;border-radius:16px;padding:22px;text-decoration:none;color:inherit;display:grid;gap:2px;text-align:center;box-shadow:0 4px 16px rgba(15,23,42,.08);transition:.2s}
+.c:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(15,23,42,.15)}
+.c span{font-size:2.4rem}.c b{font-size:1.05rem}.c small{color:var(--mut)}
+.big .c{background:#fff;border:2px solid #e0e7ff}
+footer{text-align:center;color:var(--mut);padding:20px 0 40px;font-size:.9rem}
+</style>
+</head>
+<body>
+<header><h1>مشاريعي</h1><p>قوالب مواقع، تطبيقات ويب، وألعاب بسيطة</p></header>
+<main>
+<h2>🌐 قوالب المواقع</h2>
+<div class="g big">
+  <a class="c" href="company-website/"><span>🏢</span><b>موقع شركة / خدمات</b><small>خدمات وإحصائيات وتواصل</small></a>
+  <a class="c" href="restaurant-website/"><span>🍽️</span><b>موقع مطعم</b><small>قائمة طعام وحجز</small></a>
+  <a class="c" href="portfolio-website/"><span>🎨</span><b>معرض أعمال</b><small>مشاريع ومهارات ووضع داكن</small></a>
+  <a class="c" href="store-website/"><span>🛍️</span><b>متجر إلكتروني</b><small>بحث وسلة تسوق</small></a>
+</div>
+<h2>🧰 تطبيقات ويب</h2>
+<div class="g">
+  <a class="c" href="apps/"><span>📦</span><b>8 تطبيقات صغيرة</b><small>مهام، حاسبة، مصروفات، ملاحظات…</small></a>
+</div>
+<h2>🎮 ألعاب</h2>
+<div class="g">
+  <a class="c" href="games/"><span>🕹️</span><b>7 ألعاب بسيطة</b><small>إكس أو، ثعبان، 2048…</small></a>
+</div>
+</main>
+<footer>جميع الأمثلة تجريبية، والنماذج لا ترسل بيانات لأي خادم.</footer>
+</body></html>
