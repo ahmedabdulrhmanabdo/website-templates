@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>🔟 لعبة 2048</title><style>*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+:root{--a:#7c3aed;--bg:#0f172a;--card:#1e293b;--ink:#f1f5f9;--mut:#94a3b8}
+body{font-family:system-ui,'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:start center;padding:20px 12px;line-height:1.6}
+.g{background:var(--card);border-radius:18px;padding:20px;width:min(440px,100%);text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+h1{font-size:1.4rem;margin-bottom:8px}.mut{color:var(--mut)}.st{margin:8px 0 14px;font-weight:700;min-height:1.6em}
+button{font:inherit;border:0;border-radius:10px;padding:10px 18px;background:var(--a);color:#fff;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(1.12)}input{font:inherit;padding:10px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:var(--ink);text-align:center}
+#b{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;background:#1e293b;direction:ltr;touch-action:none}.t{aspect-ratio:1;border-radius:10px;display:grid;place-items:center;font-size:1.6rem;font-weight:800}</style></head>
+<body><div class="g"><h1>🔟 لعبة 2048</h1>
+<div class="st">النقاط: <span id="sc">0</span></div><div id="b"></div><p class="mut" style="margin:10px 0">الأسهم أو اسحب الشاشة لدمج الأرقام المتشابهة</p><button id="r">لعبة جديدة</button>
+</div><script>
+
+const $=i=>document.getElementById(i);let G,sc;
+const col={0:'#334155',2:'#eee4da',4:'#ede0c8',8:'#f2b179',16:'#f59563',32:'#f67c5f',64:'#f65e3b',128:'#edcf72',256:'#edcc61',512:'#edc850',1024:'#edc53f',2048:'#edc22e'};
+function add(){const e=[];G.forEach((r,y)=>r.forEach((v,x)=>{if(!v)e.push([x,y])}));if(!e.length)return;const [x,y]=e[Math.floor(Math.random()*e.length)];G[y][x]=Math.random()<.9?2:4}
+function init(){G=Array.from({length:4},()=>Array(4).fill(0));sc=0;add();add();draw()}
+function draw(){$('sc').textContent=sc;$('b').innerHTML=G.flat().map(v=>`<div class="t" style="background:${col[v]||'#3c3a32'};color:${v>4?'#fff':'#776e65'}">${v||''}</div>`).join('')}
+function slide(row){const a=row.filter(Boolean),o=[];for(let i=0;i<a.length;i++){if(a[i]===a[i+1]){o.push(a[i]*2);sc+=a[i]*2;i++}else o.push(a[i])}while(o.length<4)o.push(0);return o}
+function move(d){const before=JSON.stringify(G);
+ if(d==='L')G=G.map(slide);if(d==='R')G=G.map(r=>slide([...r].reverse()).reverse());
+ if(d==='U'||d==='D'){for(let x=0;x<4;x++){let c=G.map(r=>r[x]);c=d==='U'?slide(c):slide(c.reverse()).reverse();c.forEach((v,y)=>G[y][x]=v)}}
+ if(JSON.stringify(G)!==before){add();draw();if(!can())setTimeout(()=>alert('انتهت اللعبة! نقاطك: '+sc),100)}}
+function can(){for(let y=0;y<4;y++)for(let x=0;x<4;x++){if(!G[y][x])return true;if(x<3&&G[y][x]===G[y][x+1])return true;if(y<3&&G[y][x]===G[y+1][x])return true}return false}
+const K={ArrowLeft:'L',ArrowRight:'R',ArrowUp:'U',ArrowDown:'D'};
+document.onkeydown=e=>{if(K[e.key]){e.preventDefault();move(K[e.key])}};
+let p;$('b').ontouchstart=e=>{p=e.touches[0]};$('b').ontouchend=e=>{const q=e.changedTouches[0],dx=q.clientX-p.clientX,dy=q.clientY-p.clientY;if(Math.max(Math.abs(dx),Math.abs(dy))<20)return;
+ Math.abs(dx)>Math.abs(dy)?move(dx>0?'R':'L'):move(dy>0?'D':'U')};
+$('r').onclick=init;init();
+</script></body></html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>🃏 لعبة الذاكرة</title><style>*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+:root{--a:#7c3aed;--bg:#0f172a;--card:#1e293b;--ink:#f1f5f9;--mut:#94a3b8}
+body{font-family:system-ui,'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:start center;padding:20px 12px;line-height:1.6}
+.g{background:var(--card);border-radius:18px;padding:20px;width:min(440px,100%);text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+h1{font-size:1.4rem;margin-bottom:8px}.mut{color:var(--mut)}.st{margin:8px 0 14px;font-weight:700;min-height:1.6em}
+button{font:inherit;border:0;border-radius:10px;padding:10px 18px;background:var(--a);color:#fff;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(1.12)}input{font:inherit;padding:10px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:var(--ink);text-align:center}
+#b{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.m{height:80px;font-size:2rem;background:#334155;padding:0}.m.o{background:#4c1d95}.m.f{background:#15803d}</style></head>
+<body><div class="g"><h1>🃏 لعبة الذاكرة</h1>
+<div class="st" id="st">الحركات: 0 | الأزواج: 0/8</div><div id="b"></div><div style="margin-top:14px"><button id="r">لعبة جديدة</button></div>
+</div><script>
+
+const $=i=>document.getElementById(i);const E=['🍎','🚀','🎈','🐱','⚽','🌙','🍕','🎸'];
+let cards,open,moves,found,lock;
+function init(){cards=[...E,...E].sort(()=>Math.random()-.5).map((e,i)=>({e,i,s:0}));open=[];moves=found=0;lock=false;draw()}
+function draw(){$('b').innerHTML=cards.map(c=>`<button class="m ${c.s?'o':''} ${c.s===2?'f':''}" data-i="${c.i}">${c.s?c.e:'?'}</button>`).join('');
+ $('st').textContent=found===8?`🎉 أنهيتها في ${moves} حركة!`:`الحركات: ${moves} | الأزواج: ${found}/8`}
+$('b').onclick=e=>{const i=e.target.dataset.i;if(i===undefined||lock)return;const c=cards[i];if(c.s)return;c.s=1;open.push(c);draw();
+ if(open.length===2){moves++;lock=true;const [a,b]=open;
+  if(a.e===b.e){a.s=b.s=2;found++;open=[];lock=false;draw()}
+  else setTimeout(()=>{a.s=b.s=0;open=[];lock=false;draw()},700)}};
+$('r').onclick=init;init();
+</script></body></html>

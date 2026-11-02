@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>🔨 اضرب الخلد</title><style>*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+:root{--a:#7c3aed;--bg:#0f172a;--card:#1e293b;--ink:#f1f5f9;--mut:#94a3b8}
+body{font-family:system-ui,'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:start center;padding:20px 12px;line-height:1.6}
+.g{background:var(--card);border-radius:18px;padding:20px;width:min(440px,100%);text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+h1{font-size:1.4rem;margin-bottom:8px}.mut{color:var(--mut)}.st{margin:8px 0 14px;font-weight:700;min-height:1.6em}
+button{font:inherit;border:0;border-radius:10px;padding:10px 18px;background:var(--a);color:#fff;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(1.12)}input{font:inherit;padding:10px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:var(--ink);text-align:center}
+#b{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.h{height:90px;font-size:2.4rem;background:#78350f;border-radius:50%;padding:0}</style></head>
+<body><div class="g"><h1>🔨 اضرب الخلد</h1>
+<div class="st">النقاط: <span id="sc">0</span> | الوقت: <span id="tm">30</span></div><div id="b"></div><div style="margin-top:14px"><button id="r">ابدأ</button></div>
+</div><script>
+
+const $=i=>document.getElementById(i);$('b').innerHTML=Array.from({length:9},(_,i)=>`<button class="h" data-i="${i}"></button>`).join('');
+const H=[...document.querySelectorAll('.h')];let sc,tm,run,up,tmr,mtr;
+function pop(){H.forEach(h=>h.textContent='');up=Math.floor(Math.random()*9);H[up].textContent='🐹'}
+function start(){clearInterval(tmr);clearInterval(mtr);sc=0;tm=30;run=true;$('sc').textContent=0;$('tm').textContent=30;pop();
+ mtr=setInterval(pop,750);tmr=setInterval(()=>{tm--;$('tm').textContent=tm;if(tm<=0){run=false;clearInterval(tmr);clearInterval(mtr);H.forEach(h=>h.textContent='');alert('انتهى الوقت! نقاطك: '+sc)}},1000)}
+$('b').onclick=e=>{const i=e.target.dataset.i;if(!run||i===undefined)return;if(+i===up){sc++;$('sc').textContent=sc;H[up].textContent='💥';up=-1}};
+$('r').onclick=start;
+</script></body></html>

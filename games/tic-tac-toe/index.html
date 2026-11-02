@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>⭕ إكس أو</title><style>*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+:root{--a:#7c3aed;--bg:#0f172a;--card:#1e293b;--ink:#f1f5f9;--mut:#94a3b8}
+body{font-family:system-ui,'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:start center;padding:20px 12px;line-height:1.6}
+.g{background:var(--card);border-radius:18px;padding:20px;width:min(440px,100%);text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+h1{font-size:1.4rem;margin-bottom:8px}.mut{color:var(--mut)}.st{margin:8px 0 14px;font-weight:700;min-height:1.6em}
+button{font:inherit;border:0;border-radius:10px;padding:10px 18px;background:var(--a);color:#fff;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(1.12)}input{font:inherit;padding:10px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:var(--ink);text-align:center}
+#b{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:300px;margin:auto}.c{height:90px;font-size:2.4rem;background:#334155;padding:0}</style></head>
+<body><div class="g"><h1>⭕ إكس أو</h1>
+<p class="mut">أنت ❌ والكمبيوتر ⭕</p><div id="st" class="st"></div><div id="b"></div><div style="margin-top:14px"><button id="r">لعبة جديدة</button></div><p class="mut" id="sc" style="margin-top:10px"></p>
+</div><script>
+
+const $=i=>document.getElementById(i);const W=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+let B,over,sc={w:0,l:0,d:0};
+const win=(b,p)=>W.some(l=>l.every(i=>b[i]===p));
+function best(b){ // minimax: يلعب ⭕ بشكل مثالي بنسبة معينة
+ const mm=(bd,pl)=>{if(win(bd,'O'))return 1;if(win(bd,'X'))return -1;if(bd.every(Boolean))return 0;
+  const sc=bd.map((v,i)=>v?null:i).filter(i=>i!==null).map(i=>{bd[i]=pl;const s=mm(bd,pl==='O'?'X':'O');bd[i]=null;return s});
+  return pl==='O'?Math.max(...sc):Math.min(...sc)};
+ let m=-2,mv=[];b.forEach((v,i)=>{if(v)return;b[i]='O';const s=mm(b,'X');b[i]=null;if(s>m){m=s;mv=[i]}else if(s===m)mv.push(i)});
+ return mv[Math.floor(Math.random()*mv.length)]}
+function draw(){$('b').innerHTML=B.map((v,i)=>`<button class="c ${v||''}" data-i="${i}">${v==='X'?'❌':v==='O'?'⭕':''}</button>`).join('');
+ $('sc').textContent=`فوز: ${sc.w} | خسارة: ${sc.l} | تعادل: ${sc.d}`}
+function end(){if(win(B,'X')){sc.w++;$('st').textContent='🎉 فزت!'}else if(win(B,'O')){sc.l++;$('st').textContent='😅 فاز الكمبيوتر'}else if(B.every(Boolean)){sc.d++;$('st').textContent='🤝 تعادل'}else return false;over=true;return true}
+function init(){B=Array(9).fill(null);over=false;$('st').textContent='دورك';draw()}
+$('b').onclick=e=>{const i=e.target.dataset.i;if(over||i===undefined||B[i])return;B[i]='X';if(!end()){B[best(B)]='O';end()}draw()};
+$('r').onclick=init;init();
+</script></body></html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>🐍 لعبة الثعبان</title><style>*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+:root{--a:#7c3aed;--bg:#0f172a;--card:#1e293b;--ink:#f1f5f9;--mut:#94a3b8}
+body{font-family:system-ui,'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:start center;padding:20px 12px;line-height:1.6}
+.g{background:var(--card);border-radius:18px;padding:20px;width:min(440px,100%);text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+h1{font-size:1.4rem;margin-bottom:8px}.mut{color:var(--mut)}.st{margin:8px 0 14px;font-weight:700;min-height:1.6em}
+button{font:inherit;border:0;border-radius:10px;padding:10px 18px;background:var(--a);color:#fff;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(1.12)}input{font:inherit;padding:10px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:var(--ink);text-align:center}
+canvas{width:100%;max-width:400px;border-radius:12px;touch-action:none}</style></head>
+<body><div class="g"><h1>🐍 لعبة الثعبان</h1>
+<div class="st">النقاط: <span id="sc">0</span> | الأعلى: <span id="hi">0</span></div><canvas id="cv" width="400" height="400"></canvas><p class="mut" style="margin:8px 0">الأسهم أو WASD، وعلى الجوال اسحب الشاشة</p><button id="r">ابدأ</button>
+</div><script>
+
+const cv=document.getElementById('cv'),x=cv.getContext('2d'),N=20,S=cv.width/N;let sn,d,nd,f,sc,t,hi=0;
+try{hi=+localStorage.getItem('snk')||0}catch{}document.getElementById('hi').textContent=hi;
+function food(){do{f={x:Math.floor(Math.random()*N),y:Math.floor(Math.random()*N)}}while(sn.some(s=>s.x===f.x&&s.y===f.y))}
+function start(){clearInterval(t);sn=[{x:10,y:10},{x:9,y:10},{x:8,y:10}];d=nd={x:1,y:0};sc=0;document.getElementById('sc').textContent=0;food();t=setInterval(step,110);draw()}
+function step(){d=nd;const h={x:sn[0].x+d.x,y:sn[0].y+d.y};
+ if(h.x<0||h.y<0||h.x>=N||h.y>=N||sn.some(s=>s.x===h.x&&s.y===h.y)){clearInterval(t);if(sc>hi){hi=sc;try{localStorage.setItem('snk',hi)}catch{}document.getElementById('hi').textContent=hi}
+  x.fillStyle='rgba(0,0,0,.6)';x.fillRect(0,0,400,400);x.fillStyle='#fff';x.font='bold 28px sans-serif';x.textAlign='center';x.fillText('انتهت اللعبة',200,205);return}
+ sn.unshift(h);if(h.x===f.x&&h.y===f.y){sc++;document.getElementById('sc').textContent=sc;food()}else sn.pop();draw()}
+function draw(){x.fillStyle='#0f172a';x.fillRect(0,0,400,400);x.font=S-2+'px serif';x.textAlign='left';x.fillText('🍎',f.x*S,f.y*S+S-3);
+ sn.forEach((s,i)=>{x.fillStyle=i?'#22c55e':'#86efac';x.beginPath();x.roundRect(s.x*S+1,s.y*S+1,S-2,S-2,5);x.fill()})}
+const dir={ArrowUp:[0,-1],w:[0,-1],ArrowDown:[0,1],s:[0,1],ArrowLeft:[-1,0],a:[-1,0],ArrowRight:[1,0],d:[1,0]};
+function go(a,b){if(a!==-d.x||b!==-d.y)if(!(a===0&&b===0))nd={x:a,y:b}}
+document.onkeydown=e=>{const k=dir[e.key];if(k){e.preventDefault();go(k[0],k[1])}};
+let p;cv.ontouchstart=e=>{p=e.touches[0]};cv.ontouchend=e=>{const q=e.changedTouches[0],dx=q.clientX-p.clientX,dy=q.clientY-p.clientY;
+ Math.abs(dx)>Math.abs(dy)?go(Math.sign(dx),0):go(0,Math.sign(dy))};
+document.getElementById('r').onclick=start;start();
+</script></body></html>
