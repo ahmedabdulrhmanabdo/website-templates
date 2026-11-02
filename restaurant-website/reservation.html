@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>حجز طاولة | مطعم مذاق</title>
+<meta name="description" content="مطعم عربي أصيل: قائمة طعام، عروض، حجز طاولة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="topbar"><div class="container"><span>🕐 يوميًا 12 ظهرًا – 12 ليلًا</span><span>☎ 920001111 · توصيل مجاني فوق 100 ر.س</span></div></div>
+<header class="header"><div class="container nav">
+  <a href="index.html" class="logo">🍽️ مذاق</a>
+  
+  <button class="menu-btn" aria-label="القائمة" aria-expanded="false">☰</button>
+  <nav class="menu"><a href="index.html">الرئيسية</a><a href="menu.html">القائمة</a><a href="about.html">قصتنا</a><a href="offers.html">العروض</a><a href="gallery.html">المعرض</a><a href="contact.html">فروعنا</a><a href="reservation.html" class="btn btn-sm">احجز طاولة</a></nav>
+</div></header>
+<section class="page-hero"><div class="container"><div class="crumbs"><a href="index.html">الرئيسية</a> / حجز طاولة</div><h1>حجز طاولة</h1><p>احجز مكانك في ثوانٍ واستلم رقمًا مرجعيًا فوريًا.</p></div></section>
+<main>
+<section class="section"><div class="container rsv">
+<div><form class="f" id="rf" novalidate>
+<div class="row2"><label class="l">الاسم<input id="rn" required></label><label class="l">الجوال<input id="rp" type="tel" required placeholder="05xxxxxxxx"></label></div>
+<div class="row2"><label class="l">التاريخ<input type="date" id="rd" required></label><label class="l">عدد الأشخاص<select id="rg"></select></label></div>
+<div><b>اختر الوقت</b><div id="slots" class="slots"></div></div>
+<div class="row2"><label class="l">المنطقة<select id="rz"><option>داخلي</option><option>خارجي (جلسة)</option><option>جلسة عائلية خاصة</option></select></label>
+<label class="l">المناسبة<select id="ro"><option>بدون</option><option>عيد ميلاد</option><option>ذكرى</option><option>اجتماع عمل</option></select></label></div>
+<label class="l">ملاحظات<textarea id="rt" rows="3" placeholder="كرسي أطفال، حساسية غذائية…"></textarea></label>
+<button class="btn">تأكيد الحجز</button><p class="form-msg" id="rm" role="status"></p></form></div>
+<aside class="card sumbox"><h3>ملخص الحجز</h3><div id="sum" class="mut">اختر التاريخ والوقت…</div><hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+<ul class="checks"><li>إلغاء مجاني قبل 3 ساعات</li><li>نحتفظ بالطاولة 15 دقيقة</li><li>تأكيد فوري برقم مرجعي</li></ul></aside></div></section>
+</main>
+<footer class="footer"><div class="container">
+  <div class="fgrid">
+    <div><a href="index.html" class="logo">🍽️ مذاق</a><p>مطبخ عربي أصيل بمكونات طازجة ووصفات توارثناها عبر الأجيال، في أجواء دافئة للعائلة والأصدقاء.</p></div>
+    <div><h4>روابط سريعة</h4><a href="index.html">الرئيسية</a><a href="menu.html">القائمة</a><a href="about.html">قصتنا</a><a href="offers.html">العروض</a><a href="gallery.html">المعرض</a><a href="contact.html">فروعنا</a></div>
+    <div><h4>أوقات العمل</h4><a>السبت – الخميس: 12 ظ – 12 ل</a><a>الجمعة: 1 ظ – 1 ص</a><a>آخر طلب قبل الإغلاق بنصف ساعة</a></div>
+    <div><h4>تواصل معنا</h4><a>الرياض - حي الملقا</a><a>920001111</a><a>hello@mathaq.example</a><a>@mathaq</a></div>
+  </div>
+  <div class="fbot">© <span data-year></span> مطعم مذاق — قالب تجريبي، جميع الأسماء والأرقام وهمية.</div>
+</div></footer>
+<script src="script.js"></script>
+</body>
+</html>

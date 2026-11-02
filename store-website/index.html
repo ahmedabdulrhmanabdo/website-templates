@@ -2,36 +2,46 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>متجر نموذج | تسوّق بسهولة</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<title>تسوّق بسهولة | متجري</title>
+<meta name="description" content="متجر إلكتروني: إلكترونيات وأزياء ومنزل، شحن سريع وإرجاع مجاني.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="topbar"><div class="container"><span>🚚 شحن مجاني للطلبات فوق 300 ر.س</span><span>↩ إرجاع مجاني خلال 14 يومًا · ☎ 920002222</span></div></div>
 <header class="header"><div class="container nav">
-  <a class="logo" href="#">🛍️ متجري</a>
-  <input id="search" type="search" placeholder="ابحث عن منتج…" aria-label="بحث">
-  <button id="cart-btn" class="cart-btn" aria-label="السلة">🛒 <b id="count">0</b></button>
+  <a href="index.html" class="logo">🛍️ متجري</a>
+  <form action="shop.html" class="hsearch"><input name="q" placeholder="ابحث عن منتج…" aria-label="بحث"></form><div class="ics"><a href="wishlist.html" class="ic" title="المفضلة">♡<b id="wc">0</b></a><a href="cart.html" class="ic" title="السلة">🛒<b id="cc">0</b></a></div>
+  <button class="menu-btn" aria-label="القائمة" aria-expanded="false">☰</button>
+  <nav class="menu"><a href="index.html">الرئيسية</a><a href="shop.html">المتجر</a><a href="support.html">الدعم والتتبع</a></nav>
 </div></header>
-<main>
-<section class="banner"><div class="container"><h1>تخفيضات الموسم</h1><p>خصم يصل إلى 30% على منتجات مختارة</p></div></section>
-<section class="container shop">
-  <div class="toolbar">
-    <div class="cats" id="cats"></div>
-    <select id="sort" aria-label="ترتيب">
-      <option value="">الترتيب الافتراضي</option><option value="asc">السعر: الأقل أولًا</option><option value="desc">السعر: الأعلى أولًا</option>
-    </select>
-  </div>
-  <div class="grid" id="grid"></div>
-  <p id="empty" class="empty" hidden>لا توجد منتجات مطابقة.</p>
-</section>
-</main>
 
-<aside class="drawer" id="drawer" aria-hidden="true">
-  <div class="d-head"><h2>سلة التسوق</h2><button id="close" aria-label="إغلاق">✕</button></div>
-  <div id="items" class="items"></div>
-  <div class="d-foot"><div class="total"><span>الإجمالي</span><strong id="total">0</strong></div>
-  <button class="btn" id="checkout">إتمام الشراء</button><p id="cmsg" class="msg" role="status"></p></div>
-</aside>
-<div class="overlay" id="overlay" hidden></div>
+<main>
+
+<section class="slider" id="slider"><div class="slides" id="slides"></div><div class="dots" id="dots"></div><button class="sl-nav sl-p" id="slp" aria-label="السابق">›</button><button class="sl-nav sl-n" id="sln" aria-label="التالي">‹</button></section>
+<section class="perks"><div class="container grid4"><div><b>🚚 شحن سريع</b><span>خلال 2–4 أيام عمل</span></div><div><b>↩ إرجاع مجاني</b><span>خلال 14 يومًا</span></div><div><b>🔒 دفع آمن</b><span>مدى · فيزا · أبل باي</span></div><div><b>🎧 دعم 24/7</b><span>نرد على استفساراتك</span></div></div></section>
+<section class="section"><div class="container"><h2 class="sec">تسوّق حسب التصنيف</h2><p class="sub">اختر ما يناسبك</p><div class="grid4" id="cats"></div></div></section>
+<section class="section alt"><div class="container"><div class="flash"><div><h2 style="font-size:1.6rem">⚡ عروض الساعة</h2><p class="mut">تنتهي خلال</p></div><div class="cd" id="cd"><div><b id="ch">00</b><small>ساعة</small></div><div><b id="cm">00</b><small>دقيقة</small></div><div><b id="cs">00</b><small>ثانية</small></div></div><a href="shop.html?sale=1" class="btn btn-sm">كل العروض</a></div>
+<div class="grid4" id="sale"></div></div></section>
+<section class="section"><div class="container"><h2 class="sec">الأكثر تقييمًا</h2><p class="sub">اختيارات عملائنا</p><div class="grid4" id="top"></div></div></section>
+<section class="banner2"><div class="container"><div><h2>انضم لنادي المتجر</h2><p>خصم 10% على أول طلب بكود <b>SAVE10</b></p></div><button class="btn btn-w" data-copy="SAVE10">نسخ الكود</button></div></section>
+<section class="section"><div class="container"><h2 class="sec">علامات تجارية</h2><p class="sub">&nbsp;</p><div class="brands"><b>Sonic</b><b>Zenith</b><b>Nova</b><b>Urban</b><b>Casa</b><b>Aero</b></div></div></section>
+<section class="section alt"><div class="container"><h2 class="sec">آراء المشترين</h2><p class="sub">&nbsp;</p><div class="grid3">
+<div class="card rv"><div class="stars">★★★★★</div><p>"وصلني الطلب في يومين والتغليف ممتاز. الجودة تستاهل السعر."</p><b>عبدالعزيز</b></div>
+<div class="card rv"><div class="stars">★★★★★</div><p>"استبدلت المقاس بسهولة تامة وبدون أي مشاكل، خدمة عملاء محترمة."</p><b>مها</b></div>
+<div class="card rv"><div class="stars">★★★★☆</div><p>"تشكيلة جيدة وأسعار منافسة. أتمنى تنوّعًا أكثر بالألوان."</p><b>يزيد</b></div></div></div></section>
+<section class="section"><div class="container" style="max-width:560px"><h2 class="sec">اشترك في النشرة</h2><p class="sub">عروض حصرية تصلك أولًا بأول.</p><form class="f" data-form data-ok="تم الاشتراك بنجاح (تجريبي)." novalidate><div class="row2"><input type="email" placeholder="بريدك الإلكتروني" required><button class="btn">اشترك</button></div><p class="form-msg" role="status"></p></form></div></section>
+</main>
+<footer class="footer"><div class="container">
+  <div class="fgrid">
+    <div><a href="index.html" class="logo">🛍️ متجري</a><p>متجر نموذجي يجمع أفضل المنتجات بأسعار مناسبة، مع شحن سريع وضمان واسترجاع سهل.</p></div>
+    <div><h4>روابط سريعة</h4><a href="index.html">الرئيسية</a><a href="shop.html">المتجر</a><a href="support.html">الدعم والتتبع</a></div>
+    <div><h4>خدمة العملاء</h4><a href="support.html">تتبع طلبك</a><a href="support.html">سياسة الإرجاع</a><a href="support.html">الشحن والتوصيل</a><a href="support.html">طرق الدفع</a></div>
+    <div><h4>تواصل معنا</h4><a>920002222</a><a>support@store.example</a><a>الأحد – الخميس: 9 – 9</a><a>الرياض، السعودية</a></div>
+  </div>
+  <div class="fbot">© <span data-year></span> متجري — قالب تجريبي، جميع الأسماء والأرقام وهمية.</div>
+</div></footer>
 <script src="script.js"></script>
-</body></html>
+</body>
+</html>

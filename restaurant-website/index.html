@@ -2,50 +2,52 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>مطعم نموذج | قائمة الطعام والحجز</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<title>الرئيسية | مطعم مذاق</title>
+<meta name="description" content="مطعم عربي أصيل: قائمة طعام، عروض، حجز طاولة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="topbar"><div class="container"><span>🕐 يوميًا 12 ظهرًا – 12 ليلًا</span><span>☎ 920001111 · توصيل مجاني فوق 100 ر.س</span></div></div>
 <header class="header"><div class="container nav">
-  <a class="logo" href="#top">🍽️ مذاق</a>
-  <nav><a href="#menu">القائمة</a><a href="#about">عنّا</a><a href="#book" class="btn sm">احجز طاولة</a></nav>
+  <a href="index.html" class="logo">🍽️ مذاق</a>
+  
+  <button class="menu-btn" aria-label="القائمة" aria-expanded="false">☰</button>
+  <nav class="menu"><a href="index.html">الرئيسية</a><a href="menu.html">القائمة</a><a href="about.html">قصتنا</a><a href="offers.html">العروض</a><a href="gallery.html">المعرض</a><a href="contact.html">فروعنا</a><a href="reservation.html" class="btn btn-sm">احجز طاولة</a></nav>
 </div></header>
-<main id="top">
-<section class="hero"><div class="container">
-  <p class="kicker">مطبخ عربي أصيل</p>
-  <h1>نكهات تُحكى<br>وطعم لا يُنسى</h1>
-  <a href="#menu" class="btn">استعرض القائمة</a>
-</div></section>
 
-<section class="section" id="menu"><div class="container">
-  <h2>قائمة الطعام</h2>
-  <div class="tabs" role="tablist">
-    <button class="tab active" data-cat="all">الكل</button>
-    <button class="tab" data-cat="main">الأطباق الرئيسية</button>
-    <button class="tab" data-cat="starter">المقبلات</button>
-    <button class="tab" data-cat="dessert">الحلويات</button>
-    <button class="tab" data-cat="drink">المشروبات</button>
-  </div>
-  <div class="menu-grid" id="menu-grid"></div>
-</div></section>
+<main>
 
-<section class="section alt" id="about"><div class="container two">
-  <div><h2 class="l">عنّا</h2><p>نقدّم أطباقًا محضّرة يوميًا من مكونات طازجة ووصفات توارثناها عبر الأجيال، في أجواء دافئة تناسب العائلة والأصدقاء.</p></div>
-  <div class="hours"><h3>ساعات العمل</h3><p>السبت – الخميس: 12 ظهرًا – 12 ليلًا</p><p>الجمعة: 1 ظهرًا – 1 صباحًا</p></div>
-</div></section>
-
-<section class="section" id="book"><div class="container narrow">
-  <h2>احجز طاولتك</h2>
-  <form id="book-form" novalidate>
-    <label>الاسم<input name="name" required></label>
-    <div class="row"><label>التاريخ<input type="date" name="date" required></label>
-    <label>عدد الأشخاص<input type="number" name="guests" min="1" max="20" value="2" required></label></div>
-    <button class="btn" type="submit">تأكيد الحجز</button>
-    <p class="msg" role="status"></p>
-  </form>
-</div></section>
+<section class="hero"><div class="container"><p class="kicker">مطبخ عربي أصيل منذ 2008</p><h1>نكهات تُحكى<br>وطعم لا يُنسى</h1>
+<p class="lead">أطباق محضّرة يوميًا من مكونات طازجة، وجلسات تجمع العائلة والأصدقاء.</p>
+<div class="acts"><a href="menu.html" class="btn">استعرض القائمة</a><a href="reservation.html" class="btn btn-w">احجز طاولتك</a></div></div></section>
+<section class="info"><div class="container grid3"><div><b>🕐 أوقات العمل</b><span>12 ظهرًا – 12 ليلًا</span></div><div><b>📍 الموقع</b><span>الرياض - حي الملقا</span></div><div><b>🚚 التوصيل</b><span>مجاني فوق 100 ر.س</span></div></div></section>
+<section class="section"><div class="container"><span class="kick" style="display:block;text-align:center">لماذا مذاق؟</span><h2 class="sec">ما يميّزنا</h2><p class="sub">ثلاثة أسباب تجعل زيارتك الأولى ليست الأخيرة</p>
+<div class="grid3"><div class="card center rv"><span class="ico">🥩</span><h3>مكونات طازجة</h3><p>نختار لحومنا وخضارنا يوميًا من مزارع محلية موثوقة.</p></div>
+<div class="card center rv"><span class="ico">👨‍🍳</span><h3>طهاة بخبرة</h3><p>طاقم مطبخ بخبرة تتجاوز 15 سنة في المطبخ العربي.</p></div>
+<div class="card center rv"><span class="ico">🏡</span><h3>أجواء عائلية</h3><p>جلسات عائلية وخاصة وقاعات للمناسبات.</p></div></div></div></section>
+<section class="section alt"><div class="container"><h2 class="sec">أطباقنا المميزة</h2><p class="sub">الأكثر طلبًا من ضيوفنا</p><div class="menu-grid" id="featured"></div>
+<p class="center" style="margin-top:28px"><a href="menu.html" class="btn btn-o">القائمة الكاملة</a></p></div></section>
+<section class="section"><div class="container split"><div class="ph" style="font-size:5.5rem;min-height:320px">👨‍🍳</div>
+<div><span class="kick">الشيف</span><h2 style="font-size:1.8rem">"الطبخ عندي ذاكرة وحب"</h2><p class="mut" style="margin:8px 0">يقول الشيف عبدالله الراشد: كل طبق نقدّمه هو حكاية من بيت جدتي، أضفت عليها لمستي وحرصت أن تبقى أصيلة.</p>
+<ul class="checks"><li>جائزة أفضل مطعم عربي 2024</li><li>أكثر من 15 سنة خبرة</li><li>وصفات عائلية موثّقة</li></ul><p style="margin-top:14px"><a href="about.html" class="btn btn-o btn-sm">اقرأ قصتنا</a></p></div></div></section>
+<section class="offerband"><div class="container"><div><b>🎁 عرض العائلة</b><p>وجبة عائلية لـ 5 أشخاص بسعر 199 ر.س — كود <b>FAMILY</b></p></div><a href="offers.html" class="btn btn-w">كل العروض</a></div></section>
+<section class="section"><div class="container"><h2 class="sec">آراء ضيوفنا</h2><p class="sub">ما يقوله من زارنا</p><div class="grid3">
+<div class="card rv"><div class="stars">★★★★★</div><p>"المندي من أفضل ما أكلت، واللحم يذوب بالفم. الخدمة سريعة جدًا."</p><b>أبو فيصل</b></div>
+<div class="card rv"><div class="stars">★★★★★</div><p>"مكان هادئ ومناسب للعائلة والأطفال، والحلويات رائعة خاصة الكنافة."</p><b>أم ريم</b></div>
+<div class="card rv"><div class="stars">★★★★☆</div><p>"الحجز كان سهلًا، والأجواء جميلة. أنصح بتجربة الكبسة."</p><b>سلطان</b></div></div></div></section>
+<section class="cta"><div class="container"><h2>احجز طاولتك الآن</h2><p>تأكد من مكانك قبل الزحام، خاصة في عطلة نهاية الأسبوع.</p><a href="reservation.html" class="btn btn-w">احجز طاولة</a></div></section>
 </main>
-<footer class="footer">© <span id="year"></span> مطعم مذاق — قالب تجريبي</footer>
+<footer class="footer"><div class="container">
+  <div class="fgrid">
+    <div><a href="index.html" class="logo">🍽️ مذاق</a><p>مطبخ عربي أصيل بمكونات طازجة ووصفات توارثناها عبر الأجيال، في أجواء دافئة للعائلة والأصدقاء.</p></div>
+    <div><h4>روابط سريعة</h4><a href="index.html">الرئيسية</a><a href="menu.html">القائمة</a><a href="about.html">قصتنا</a><a href="offers.html">العروض</a><a href="gallery.html">المعرض</a><a href="contact.html">فروعنا</a></div>
+    <div><h4>أوقات العمل</h4><a>السبت – الخميس: 12 ظ – 12 ل</a><a>الجمعة: 1 ظ – 1 ص</a><a>آخر طلب قبل الإغلاق بنصف ساعة</a></div>
+    <div><h4>تواصل معنا</h4><a>الرياض - حي الملقا</a><a>920001111</a><a>hello@mathaq.example</a><a>@mathaq</a></div>
+  </div>
+  <div class="fbot">© <span data-year></span> مطعم مذاق — قالب تجريبي، جميع الأسماء والأرقام وهمية.</div>
+</div></footer>
 <script src="script.js"></script>
-</body></html>
+</body>
+</html>
