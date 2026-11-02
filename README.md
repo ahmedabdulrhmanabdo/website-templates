@@ -2,6 +2,8 @@
 
 مشاريعي من 2016 إلى اليوم: مواقع وتطبيقات وألعاب عربية (RTL) بـ HTML/CSS/JavaScript بدون أي مكتبات، وأنظمة ومنصات على Frappe/ERPNext. افتح `index.html` داخل أي مجلد أو شغّل `python3 -m http.server`.
 
+**المنصات والأنظمة:** [منصة SaaS للفواتير والمبيعات](https://aqarsmart.com/saas-signup) · أنظمة ERPNext وFrappe (انظر [معرض الأعمال](portfolio-website/projects.html)).
+
 | المجلد | الوصف |
 |---|---|
 | [company-website](company-website) | موقع شركة / خدمات (8 صفحات: خدمات، مشاريع، من نحن، أسعار، مدونة، تواصل) |
