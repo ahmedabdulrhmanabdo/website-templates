@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>📝 الملاحظات</title><style>*{box-sizing:border-box;margin:0}
+:root{--a:#4f46e5;--bg:#f1f5f9;--card:#fff;--ink:#0f172a;--mut:#64748b;--line:#e2e8f0}
+body{font-family:system-ui,'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:start center;padding:24px 14px;line-height:1.6}
+.app{background:var(--card);border-radius:18px;box-shadow:0 10px 40px rgba(15,23,42,.1);width:min(480px,100%);padding:22px}
+h1{font-size:1.4rem;margin-bottom:14px;text-align:center}
+input,select,textarea,button{font:inherit}
+input,select,textarea{border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--a);border-color:transparent}
+button{border:0;border-radius:10px;padding:10px 16px;background:var(--a);color:#fff;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(.92)}button.g{background:#e2e8f0;color:var(--ink)}button.d{background:#ef4444}
+.row{display:flex;gap:8px;margin-bottom:10px}.mut{color:var(--mut);font-size:.9rem}
+.note{border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:8px;cursor:pointer}.note:hover{background:var(--bg)}</style></head>
+<body><div class="app"><h1>📝 الملاحظات</h1>
+<div class="row"><input id="q" placeholder="ابحث…"><button id="add">+ جديدة</button></div>
+<div id="list"></div><div id="ed" hidden><input id="ti" placeholder="العنوان"><textarea id="bo" rows="8" placeholder="اكتب ملاحظتك…" style="margin:8px 0"></textarea>
+<div class="row"><button id="sv" style="flex:1">حفظ</button><button class="d" id="dl">حذف</button><button class="g" id="cl">إغلاق</button></div></div>
+</div><script>
+
+let notes=[];try{notes=JSON.parse(localStorage.getItem('notes')||'[]')}catch{}let cur=null;
+const $=i=>document.getElementById(i);const save=()=>{try{localStorage.setItem('notes',JSON.stringify(notes))}catch{}};
+function draw(){const q=$('q').value.trim();const L=notes.filter(n=>(n.t+n.b).includes(q));
+ $('list').innerHTML=L.map(n=>`<div class="note" data-id="${n.id}"><b>${(n.t||'بدون عنوان').replace(/</g,'&lt;')}</b><p class="mut">${n.b.slice(0,60).replace(/</g,'&lt;')}</p></div>`).join('')||'<p class="mut" style="text-align:center">لا توجد ملاحظات</p>'}
+function open_(n){cur=n;$('ti').value=n.t;$('bo').value=n.b;$('ed').hidden=false;$('list').hidden=true}
+function close_(){cur=null;$('ed').hidden=true;$('list').hidden=false;draw()}
+$('add').onclick=()=>{const n={id:Date.now(),t:'',b:''};notes.unshift(n);open_(n)};
+$('list').onclick=e=>{const el=e.target.closest('.note');if(el)open_(notes.find(n=>n.id==el.dataset.id))};
+$('sv').onclick=()=>{cur.t=$('ti').value;cur.b=$('bo').value;save();close_()};
+$('dl').onclick=()=>{notes=notes.filter(n=>n!==cur);save();close_()};$('cl').onclick=()=>{if(!cur.t&&!cur.b)notes=notes.filter(n=>n!==cur);close_()};
+$('q').oninput=draw;draw();
+</script></body></html>

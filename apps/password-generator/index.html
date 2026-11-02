@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🔐 مولّد كلمات المرور</title><style>*{box-sizing:border-box;margin:0}
+:root{--a:#4f46e5;--bg:#f1f5f9;--card:#fff;--ink:#0f172a;--mut:#64748b;--line:#e2e8f0}
+body{font-family:system-ui,'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:start center;padding:24px 14px;line-height:1.6}
+.app{background:var(--card);border-radius:18px;box-shadow:0 10px 40px rgba(15,23,42,.1);width:min(480px,100%);padding:22px}
+h1{font-size:1.4rem;margin-bottom:14px;text-align:center}
+input,select,textarea,button{font:inherit}
+input,select,textarea{border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--a);border-color:transparent}
+button{border:0;border-radius:10px;padding:10px 16px;background:var(--a);color:#fff;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(.92)}button.g{background:#e2e8f0;color:var(--ink)}button.d{background:#ef4444}
+.row{display:flex;gap:8px;margin-bottom:10px}.mut{color:var(--mut);font-size:.9rem}
+.chk{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:12px 0}.chk label{display:flex;gap:6px;align-items:center}.chk input{width:auto}.pb{height:8px;background:var(--line);border-radius:6px;overflow:hidden}.pb i{display:block;height:100%;width:0;transition:.3s}</style></head>
+<body><div class="app"><h1>🔐 مولّد كلمات المرور</h1>
+<div class="row"><input id="o" readonly style="direction:ltr;font-family:monospace"><button id="cp">نسخ</button></div>
+<label>الطول: <b id="ln">16</b></label><input type="range" id="len" min="8" max="40" value="16">
+<div class="chk"><label><input type="checkbox" id="up" checked> أحرف كبيرة</label><label><input type="checkbox" id="lo" checked> أحرف صغيرة</label><label><input type="checkbox" id="nu" checked> أرقام</label><label><input type="checkbox" id="sy" checked> رموز</label></div>
+<div class="pb"><i id="st"></i></div><p class="mut" id="sl" style="margin:6px 0 12px"></p><button id="g" style="width:100%">توليد جديدة</button>
+</div><script>
+
+const $=i=>document.getElementById(i);
+const S={up:'ABCDEFGHIJKLMNOPQRSTUVWXYZ',lo:'abcdefghijklmnopqrstuvwxyz',nu:'0123456789',sy:'!@#$%^&*()-_=+[]{};:,.?'};
+function gen(){let pool='';for(const k in S)if($(k).checked)pool+=S[k];if(!pool){$('o').value='';$('sl').textContent='اختر نوعًا واحدًا على الأقل';$('st').style.width='0';return}
+ const n=+$('len').value,a=new Uint32Array(n);crypto.getRandomValues(a);$('o').value=[...a].map(x=>pool[x%pool.length]).join('');$('ln').textContent=n;
+ const bits=n*Math.log2(pool.length),p=Math.min(100,bits/1.28);$('st').style.width=p+'%';$('st').style.background=p<40?'#ef4444':p<70?'#f59e0b':'#16a34a';$('sl').textContent=p<40?'ضعيفة':p<70?'متوسطة':'قوية'}
+$('g').onclick=gen;$('len').oninput=gen;document.querySelectorAll('.chk input').forEach(c=>c.onchange=gen);
+$('cp').onclick=async()=>{try{await navigator.clipboard.writeText($('o').value);$('cp').textContent='تم ✓'}catch{$('o').select()}setTimeout(()=>$('cp').textContent='نسخ',1200)};gen();
+</script></body></html>

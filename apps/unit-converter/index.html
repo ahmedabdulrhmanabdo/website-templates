@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>📏 محوّل الوحدات</title><style>*{box-sizing:border-box;margin:0}
+:root{--a:#4f46e5;--bg:#f1f5f9;--card:#fff;--ink:#0f172a;--mut:#64748b;--line:#e2e8f0}
+body{font-family:system-ui,'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:start center;padding:24px 14px;line-height:1.6}
+.app{background:var(--card);border-radius:18px;box-shadow:0 10px 40px rgba(15,23,42,.1);width:min(480px,100%);padding:22px}
+h1{font-size:1.4rem;margin-bottom:14px;text-align:center}
+input,select,textarea,button{font:inherit}
+input,select,textarea{border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--a);border-color:transparent}
+button{border:0;border-radius:10px;padding:10px 16px;background:var(--a);color:#fff;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(.92)}button.g{background:#e2e8f0;color:var(--ink)}button.d{background:#ef4444}
+.row{display:flex;gap:8px;margin-bottom:10px}.mut{color:var(--mut);font-size:.9rem}
+</style></head>
+<body><div class="app"><h1>📏 محوّل الوحدات</h1>
+<select id="c"><option value="len">الطول</option><option value="wt">الوزن</option><option value="tmp">الحرارة</option></select>
+<div class="row" style="margin-top:12px"><input id="v" type="number" value="1"><select id="a"></select></div>
+<div class="row"><input id="r" readonly><select id="b"></select></div>
+</div><script>
+
+const U={len:{'متر':1,'كيلومتر':1000,'سنتيمتر':.01,'ميل':1609.344,'قدم':.3048,'إنش':.0254},
+ wt:{'كيلوغرام':1,'غرام':.001,'طن':1000,'رطل':.45359237,'أوقية':.0283495}};
+const $=i=>document.getElementById(i);
+function fill(){const t=$('c').value;const names=t==='tmp'?['مئوية','فهرنهايت','كلفن']:Object.keys(U[t]);
+ [$('a'),$('b')].forEach((s,k)=>{s.innerHTML=names.map(n=>`<option>${n}</option>`).join('');s.selectedIndex=k?1:0});go()}
+function go(){const t=$('c').value,v=+$('v').value,a=$('a').value,b=$('b').value;let r;
+ if(t==='tmp'){const c=a==='مئوية'?v:a==='فهرنهايت'?(v-32)*5/9:v-273.15;r=b==='مئوية'?c:b==='فهرنهايت'?c*9/5+32:c+273.15}
+ else r=v*U[t][a]/U[t][b];$('r').value=+r.toFixed(6)}
+['c'].forEach(i=>$(i).onchange=fill);['v','a','b'].forEach(i=>$(i).oninput=go);fill();
+</script></body></html>

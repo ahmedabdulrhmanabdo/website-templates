@@ -8,3 +8,4 @@
 | [restaurant-website](restaurant-website) | مطعم: قائمة بتصنيفات وحجز طاولة |
 | [portfolio-website](portfolio-website) | معرض أعمال: مشاريع، مهارات، وضع داكن/فاتح |
 | [store-website](store-website) | متجر: بحث، تصنيفات، سلة تسوق |
+| [apps](apps) | 8 تطبيقات ويب صغيرة: مهام، حاسبة، بومودورو، مصروفات، ملاحظات، اختبار، محوّل وحدات، مولّد كلمات مرور |

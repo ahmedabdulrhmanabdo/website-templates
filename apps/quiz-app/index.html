@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🧠 اختبار معلومات عامة</title><style>*{box-sizing:border-box;margin:0}
+:root{--a:#4f46e5;--bg:#f1f5f9;--card:#fff;--ink:#0f172a;--mut:#64748b;--line:#e2e8f0}
+body{font-family:system-ui,'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:start center;padding:24px 14px;line-height:1.6}
+.app{background:var(--card);border-radius:18px;box-shadow:0 10px 40px rgba(15,23,42,.1);width:min(480px,100%);padding:22px}
+h1{font-size:1.4rem;margin-bottom:14px;text-align:center}
+input,select,textarea,button{font:inherit}
+input,select,textarea{border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--a);border-color:transparent}
+button{border:0;border-radius:10px;padding:10px 16px;background:var(--a);color:#fff;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(.92)}button.g{background:#e2e8f0;color:var(--ink)}button.d{background:#ef4444}
+.row{display:flex;gap:8px;margin-bottom:10px}.mut{color:var(--mut);font-size:.9rem}
+h2{font-size:1.2rem;margin:14px 0}.opt{display:block;width:100%;margin-bottom:8px;text-align:right}.pb{height:6px;background:var(--line);border-radius:6px;overflow:hidden}.pb i{display:block;height:100%;background:var(--a)}.big{font-size:3rem;font-weight:800;text-align:center}</style></head>
+<body><div class="app"><h1>🧠 اختبار معلومات عامة</h1>
+<div id="box"></div>
+</div><script>
+
+const Q=[['ما عاصمة المملكة العربية السعودية؟',['جدة','الرياض','الدمام','مكة'],1],
+['كم عدد أيام الأسبوع؟',['5','6','7','8'],2],['أكبر كوكب في المجموعة الشمسية؟',['الأرض','المريخ','المشتري','زحل'],2],
+['ما ناتج 12 × 12؟',['124','144','122','164'],1],['أي لغة تُستخدم لتنسيق صفحات الويب؟',['Python','CSS','SQL','C'],1],
+['كم عدد القارات؟',['5','6','7','8'],2],['أسرع حيوان بري؟',['الأسد','الفهد','الحصان','النمر'],1],
+['ما رمز الماء الكيميائي؟',['CO2','O2','H2O','NaCl'],2]];
+const box=document.getElementById('box');let i=0,s=0;
+function q(){if(i>=Q.length){box.innerHTML=`<p class="big">${s} / ${Q.length}</p><p class="mut" style="text-align:center;margin:8px 0 14px">${s>=Q.length*.75?'ممتاز! 🎉':s>=Q.length/2?'جيد، حاول مرة أخرى 👍':'تحتاج لمراجعة 📚'}</p><button style="width:100%" id="re">إعادة الاختبار</button>`;document.getElementById('re').onclick=()=>{i=s=0;q()};return}
+ const [t,o]=Q[i];box.innerHTML=`<p class="mut">السؤال ${i+1} من ${Q.length}</p><div class="pb"><i style="width:${i/Q.length*100}%"></i></div><h2>${t}</h2>`+o.map((x,k)=>`<button class="g opt" data-k="${k}">${x}</button>`).join('')}
+box.onclick=e=>{const k=e.target.dataset.k;if(k===undefined||box.dataset.lock)return;box.dataset.lock=1;const ok=+k===Q[i][2];if(ok)s++;
+ e.target.style.background=ok?'#bbf7d0':'#fecaca';if(!ok)box.querySelectorAll('.opt')[Q[i][2]].style.background='#bbf7d0';
+ setTimeout(()=>{delete box.dataset.lock;i++;q()},900)};q();
+</script></body></html>
