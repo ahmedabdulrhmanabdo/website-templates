@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<head><script>/*i18n*/try{if((localStorage.getItem("lang")||"en")!=="ar"){var h=document.documentElement;h.classList.add("i18n-pending");h.lang="en";h.dir="ltr";setTimeout(function(){h.classList.remove("i18n-pending")},2500)}}catch(e){}</script><style>.i18n-pending body{visibility:hidden}</style><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>💰 متتبّع المصروفات</title><style>*{box-sizing:border-box;margin:0}
 :root{--a:#4f46e5;--bg:#f1f5f9;--card:#fff;--ink:#0f172a;--mut:#64748b;--line:#e2e8f0}
 body{font-family:system-ui,'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:start center;padding:24px 14px;line-height:1.6}
@@ -30,4 +30,4 @@ function draw(){const inc=rec.filter(r=>r.k==='inc').reduce((s,r)=>s+r.a,0),exp=
  $('l').innerHTML=[...rec].reverse().map(r=>`<li class="${r.k}"><span>${r.d.replace(/</g,'&lt;')}</span><b>${r.k==='inc'?'+':'−'}${n(r.a)}</b><button class="g" data-r="${r.id}">✕</button></li>`).join('')}
 $('f').onsubmit=e=>{e.preventDefault();rec.push({id:Date.now(),d:$('d').value.trim(),a:+$('a').value,k:$('k').value});save();e.target.reset();draw()};
 $('l').onclick=e=>{if(e.target.dataset.r){rec=rec.filter(r=>r.id!=e.target.dataset.r);save();draw()}};draw();
-</script></body></html>
+</script><script src="../i18n.js"></script></body></html>

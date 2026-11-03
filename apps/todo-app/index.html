@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<head><script>/*i18n*/try{if((localStorage.getItem("lang")||"en")!=="ar"){var h=document.documentElement;h.classList.add("i18n-pending");h.lang="en";h.dir="ltr";setTimeout(function(){h.classList.remove("i18n-pending")},2500)}}catch(e){}</script><style>.i18n-pending body{visibility:hidden}</style><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>✅ قائمة المهام</title><style>*{box-sizing:border-box;margin:0}
 :root{--a:#4f46e5;--bg:#f1f5f9;--card:#fff;--ink:#0f172a;--mut:#64748b;--line:#e2e8f0}
 body{font-family:system-ui,'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:start center;padding:24px 14px;line-height:1.6}
@@ -34,4 +34,4 @@ $('l').onclick=e=>{const i=e.target.dataset.i,r=e.target.dataset.r;
  if(i){const t=tasks.find(x=>x.id==i);t.d=!t.d}if(r)tasks=tasks.filter(x=>x.id!=r);save();draw()};
 $('flt').onclick=e=>{if(e.target.dataset.f){flt=e.target.dataset.f;draw()}};
 draw();
-</script></body></html>
+</script><script src="../i18n.js"></script></body></html>
