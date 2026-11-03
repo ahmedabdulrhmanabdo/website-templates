@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<head><script>/*i18n*/try{if((localStorage.getItem("lang")||"en")!=="ar"){var h=document.documentElement;h.classList.add("i18n-pending");h.lang="en";h.dir="ltr";setTimeout(function(){h.classList.remove("i18n-pending")},2500)}}catch(e){}</script><style>.i18n-pending body{visibility:hidden}</style><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>🧠 اختبار معلومات عامة</title><style>*{box-sizing:border-box;margin:0}
 :root{--a:#4f46e5;--bg:#f1f5f9;--card:#fff;--ink:#0f172a;--mut:#64748b;--line:#e2e8f0}
 body{font-family:system-ui,'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:start center;padding:24px 14px;line-height:1.6}
@@ -28,4 +28,4 @@ function q(){if(i>=Q.length){box.innerHTML=`<p class="big">${s} / ${Q.length}</p
 box.onclick=e=>{const k=e.target.dataset.k;if(k===undefined||box.dataset.lock)return;box.dataset.lock=1;const ok=+k===Q[i][2];if(ok)s++;
  e.target.style.background=ok?'#bbf7d0':'#fecaca';if(!ok)box.querySelectorAll('.opt')[Q[i][2]].style.background='#bbf7d0';
  setTimeout(()=>{delete box.dataset.lock;i++;q()},900)};q();
-</script></body></html>
+</script><script src="../i18n.js"></script></body></html>

@@ -1,0 +1,71 @@
+/* Arabic/English switch. Default language: English. */
+(function(){
+var D={"سنة خبرة جماعية": "years of combined experience", "واتساب": "WhatsApp", "اكتب ملخصًا مختصرًا دون بيانات حساسة": "Write a short summary without sensitive data", "مكتب محاماة واستشارات قانونية: مجالات الممارسة والفريق وطلب استشارة.": "Law firm and legal consulting: practice areas, team and consultation request.", "الأربعاء": "Wednesday", "مجالات الممارسة": "Practice areas", "تمثيل الشركات في النزاعات التجارية والشركات والإفلاس.": "Representing companies in commercial disputes, corporations and bankruptcy.", "الأستاذة منى السبيعي": "Ms. Muna Al-Subaie", "ظهرًا": "noon", "هل الاستشارة الأولى مجانية؟": "Is the first consultation free?", "القائمة": "Menu", "مايو": "May", "الأستاذة جود الغامدي": "Ms. Joud Al-Ghamdi", "أبريل": "April", "المعلومات في هذا الموقع عامة، ولا تُعد استشارة قانونية ولا تنشئ علاقة وكالة بين المكتب وقارئها.": "The information on this site is general, and is not legal advice nor does it create an agency relationship between the firm and its reader.", "مجالات ممارسة": "Practice areas", "الزواج والطلاق والحضانة": "Marriage, divorce and custody", "الخميس:": "Thursday:", "تم الإرسال.": "Sent.", "التزامنا": "Our commitment", "الشريك المؤسس": "Founding partner", "خلال": "within", "العنوان": "Address", "الجوال": "Mobile", "تقييم مبدئي بلا التزام": "Initial assessment with no commitment", "المتابعة": "Follow-up", "عقود الشراكة وتأسيس الشركات": "Partnership contracts and company formation", "الفصل التعسفي": "Unfair dismissal", "الاثنين": "Monday", "الميزان": "Scale", "عادية": "Regular", "الأستاذ سلطان القرني": "Mr. Sultan Al-Qarni", "حي العليا": "Al-Olaya District", "نقدّم رأيًا صريحًا بفرص القضية.": "We give a candid opinion on the case's prospects.", "اتصال هاتفي": "Phone call", "إرسال": "Send", "نتفق على الاستراتيجية والأتعاب.": "We agree on the strategy and fees.", "التقييم": "Rating", "مساءً": "PM", "لماذا تختار مكتبنا؟": "Why choose our firm?", "مراجعة الامتثال للأنظمة وتقديم الرأي القانوني.": "Reviewing regulatory compliance and giving legal opinions.", "الأستاذة دانة الحمدان": "Ms. Dana Al-Hamdan", "تواصل": "Contact", "الأستاذ نايف العنزي": "Mr. Naif Al-Anazi", "يرجى الموافقة على الإقرار أولًا.": "Please accept the declaration first.", "خبرات متكاملة بروح فريق واحد.": "Integrated expertise with one-team spirit.", "اطلب استشارة في هذا المجال": "Request a consultation in this field", "بريد إلكتروني": "Email", "رأي صريح حتى لو لم يكن في صالح توقعاتك": "A candid opinion even if it isn't in line with your expectations", "طلب استشارة": "Consultation request", "نحمي حقوقك بخبرة": "We protect your rights with expertise", "أكتوبر": "October", "نوفمبر": "November", "النزاعات العقارية": "Property disputes", "الإفلاس والتصفية": "Bankruptcy and liquidation", "وسيلة التواصل المفضلة": "Preferred contact method", "الرئيسية": "Home", "يوليو": "July", "الإثنين": "Monday", "ونبذة عن الموضوع.": "and an overview of the topic.", "الكود:": "Code:", "هل تتعاملون مع قضايا خارج الرياض؟": "Do you handle cases outside Riyadh?", "التطوير والمقاولات": "Development and contracting", "البريد الإلكتروني": "Email", "التدريب القانوني": "Legal training", "نعم، نتابع القضايا في مختلف المدن بالتنسيق مع فريقنا ومراسلينا.": "Yes, we follow cases in various cities in coordination with our team and correspondents.", "أتعاب واضحة مكتوبة قبل البدء": "Clear fees written before we start", "يسعدنا استقبالك في مكتبنا أو الرد على اتصالك.": "We are happy to welcome you at our office or answer your call.", "أخبرنا عن موضوعك ليتواصل معك المحامي المختص.": "Tell us about your matter and the specialized lawyer will contact you.", "التحكيم والتسوية الودية": "Arbitration and amicable settlement", "مستشارة قانونية": "Legal consultant", "الاستشارات للشركات": "Corporate consulting", "الفريق": "Team", "اتفاقيات السرية": "Confidentiality agreements", "درجة الاستعجال": "Urgency level", "أرسل لنا نبذة مختصرة وسيتواصل معك أحد محامينا.": "Send us a short summary and one of our lawyers will contact you.", "السبت": "Saturday", "نردّ خلال يوم عمل": "We reply within one business day", "أسئلة شائعة": "FAQ", "القانون ليس مجرد نصوص، بل ثقة بين المكتب وموكّله.": "Law is not just texts, it is trust between the firm and its client.", "الثلاثاء": "Tuesday", "الرأي القانوني المكتوب": "Written legal opinion", "مكتب متخصص في القضايا التجارية والعقود والأحوال الشخصية والعقارات، نقدّم لك رأيًا واضحًا وخطة عمل قبل أن نبدأ.": "A firm specialized in commercial cases, contracts, personal status and real estate, giving you a clear opinion and action plan before we begin.", "وسرّية والتزام": "confidentiality and commitment", "تمثيل أصحاب العمل والعاملين في المنازعات.": "Representing employers and workers in disputes.", "للمحاماة والاستشارات القانونية": "for law and legal consulting", "نركّز على ما نتقنه ونقدّم فيه قيمة حقيقية": "We focus on what we master and deliver real value in it", "نبذة عن الموضوع": "About the topic", "يونيو": "June", "مجال الاستشارة": "Consultation area", "روابط سريعة": "Quick links", "سياسات الموارد البشرية": "HR policies", "راسلنا": "Write to us", "إثبات النسب والوكالات": "Proof of lineage and powers of attorney", "الخميس": "Thursday", "الهاتف": "Phone", "مستعجلة": "Urgent", "عقود العمل": "Employment contracts", "شريكة": "Partner", "نتفق مع الموكّل كتابيًا قبل البدء: أتعاب ثابتة، أو بحسب المراحل، أو بالساعة بحسب طبيعة العمل.": "We agree with the client in writing before starting: fixed fees, by phases, or hourly depending on the nature of the work.", "العقود": "Contracts", "تم نسخ الكود:": "Code copied:", "أفضل وقت": "Best time", "العقود والامتثال": "Contracts and compliance", "الرقم المرجعي:": "Reference number:", "الاستشارة المبدئية القصيرة لتقييم الحالة مجانية، والاستشارات التفصيلية بمقابل يُتفق عليه.": "The short initial consultation to assess the case is free, and detailed consultations are for an agreed fee.", "محامٍ مسؤول عن قضيتك يتواصل معك مباشرة": "The lawyer responsible for your case contacts you directly", "طارئة": "Emergency", "النزاعات والعقود العقارية والتسجيل.": "Property disputes, contracts and registration.", "القضايا العمالية": "Labor cases", "محامٍ أول": "Senior lawyer", "الرياض": "Riyadh", "الأحد": "Sunday", "الامتثال والاستشارات": "Compliance and consulting", "ما نتولاه": "What we handle", "زيارة المكتب": "Office visit", "عقود": "contracts", "سبتمبر": "September", "يرجى تعبئة الحقول المطلوبة بشكل صحيح.": "Please fill in the required fields correctly.", "الخطة": "Plan", "حضور قانوني يحمي حقوقك": "Legal presence that protects your rights", "الوصايا والمواريث": "Wills and inheritance", "الدوام": "Hours", "محامٍ": "Lawyer", "خبرة": "Experience", "تم الإرسال، سنتواصل معك قريبًا.": "Sent, we will contact you soon.", "كيف تُحتسب الأتعاب؟": "How are fees calculated?", "الأستاذ عبدالله الراجحي": "Mr. Abdullah Al-Rajhi", "إرسال الطلب": "Send request", "أغسطس": "August", "النفقة والزيارة": "Alimony and visitation", "كل ما تشاركه معنا محمي بالسرية المهنية. لا تُرسل مستندات حساسة عبر النموذج، وسنطلبها منك بوسيلة آمنة عند الحاجة.": "Everything you share with us is protected by professional confidentiality. Do not send sensitive documents through the form, and we will request them securely when needed.", "مراجعة العقود قبل التوقيع": "Contract review before signing", "اطلب استشارة": "Request a consultation", "مارس": "March", "سياسات الخصوصية والامتثال": "Privacy and compliance policies", "هل لديك قضية أو عقد يحتاج مراجعة؟": "Do you have a case or a contract that needs review?", "محامية": "Lawyer", "بيانات المكتب": "Office details", "قضايا الأسرة بحساسية ومهنية وخصوصية.": "Family cases with sensitivity, professionalism and privacy.", "أتعاب مكتوبة قبل البدء": "Written fees before we start", "فبراير": "February", "مستحقات نهاية الخدمة": "End-of-service dues", "الأحوال الشخصية": "Personal status", "البيع والشراء والإيجار": "Buying, selling and renting", "سنة": "year", "قضية واستشارة": "Case and consultation", "مكان مخصص لخريطة": "Space reserved for a map", "ساعة": "hour", "القضايا التجارية": "Commercial cases", "حي العليا، برج الأعمال، الدور": "Al-Olaya District, Business Tower, floor", "صباحًا": "AM", "المطالبات العمالية": "Labor claims", "تواصل معنا": "Contact us", "البريد": "Email", "تعرّف على الفريق": "Meet the team", "شريك مؤسس": "Founding partner", "العقود والصياغة": "Contracts and drafting", "رسالتك": "Your message", "مكتب محاماة واستشارات قانونية يقدّم خدمات للأفراد والشركات بسرية وجدية والتزام بالمهنية.": "A law firm and legal consultancy serving individuals and companies with confidentiality, seriousness and professionalism.", "مكتب الميزان": "Al-Mizan Office", "الدعاوى والنزاعات التجارية": "Lawsuits and commercial disputes", "فحص الصكوك والملكية": "Deed and ownership check", "سيتواصل معك المحامي المختص.": "The specialized lawyer will contact you.", "ستة مجالات نقدّم فيها خدمة متخصصة.": "Six fields in which we offer specialized service.", "عقود التوريد والخدمات": "Supply and service contracts", "الاستشارات القانونية للشركات": "Legal consulting for companies", "صياغة ومراجعة العقود بما يحمي مصالحك.": "Drafting and reviewing contracts that protect your interests.", "العقارات": "Real estate", "كيف نتعامل مع قضيتك": "How we handle your case", "مكتب الميزان للمحاماة": "Al-Mizan Law Office", "سرية المعلومات": "Information confidentiality", "سرية تامة": "Complete confidentiality", "منهجنا": "Our approach", "سرية تامة لكل ما تقدّمه لنا": "Complete confidentiality for everything you share with us", "استشارات": "Consultations", "أفهم أن هذا النموذج لا ينشئ علاقة وكالة قبل التعاقد الرسمي.": "I understand that this form does not create an agency relationship before the formal engagement.", "القضايا التجارية والتحكيم": "Commercial cases and arbitration", "أبرز خدماتنا": "Our top services", "نطلعك على كل جديد أولًا بأول.": "We keep you posted on everything new.", "تم استلام طلبك يا": "Your order has been received,", "و": "and", "فريق المحامين": "Our lawyers", "نفهم الوقائع والمستندات كاملة.": "We understand the facts and documents fully.", "سنوات": "years", "الجمعة": "Friday", "يناير": "January", "ديسمبر": "December", "الاسم": "Name", "الاستماع": "Listening", "محاماة": "Law", "أكمل الاسم ورقم جوال صحيح": "Complete the name and a valid mobile number"};
+var A='\\u0600-\\u06FF';
+var keys=Object.keys(D).sort(function(a,b){return b.length-a.length});
+var esc=function(s){return s.replace(/[.*+?^${}()|[\]\\\/-]/g,'\\$&')};
+var RX=keys.length?new RegExp('(?<![؀-ۿ])(?:'+keys.map(esc).join('|')+')(?![؀-ۿ])','g'):null;
+var AR=/[؀-ۿ]/;
+var en=true;try{en=(localStorage.getItem('lang')||'en')!=='ar'}catch(e){}
+var busy=false;
+function tr(s){var o=tr1(s);if(AR.test(o)&&s.indexOf('،')>-1)o=s.split('،').map(tr1).join(', ').replace(/,\s{2,}/g,', ');return o}
+function tr1(s){
+  var t=s.trim();if(!t)return s;
+  var out=D[t]!==undefined?s.replace(t,D[t]):(RX?s.replace(RX,function(m){return D[m]}):s);
+  out=out.replace(/[٠-٩]/g,function(c){return c.charCodeAt(0)-1632}).replace(/٬/g,',').replace(/٫/g,'.');
+  var NA='(?![\\u0600-\\u06FF])';
+  out=out.replace(/(\d{4})\s*م(?![\u0600-\u06FF])/g,'$1').replace(/(\d)\s*م²/g,'$1 m²').replace(/(\d)\s*غ(?![\u0600-\u06FF])/g,'$1 g').replace(/(Street \d+)\s*م/g,'$1 m')
+   .replace(new RegExp('(?<![\\d:])(\\d{1,2}(?::\\d{2})?)\\s*ص'+NA,'g'),'$1 AM').replace(new RegExp('(?<![\\d:])(\\d{1,2}(?::\\d{2})?)\\s*[مظ]'+NA,'g'),'$1 PM').replace(new RegExp('(?<![\\d:])(\\d{1,2}(?::\\d{2})?)\\s*ل'+NA,'g'),'$1 AM')
+   .replace(/(\d)\s*و\s*(\d)/g,'$1 and $2').replace(/\sو(?=[A-Za-z])/g,' & ').replace(/^و(?=[A-Za-z])/,'& ');
+  return out.replace(/،/g,',').replace(/؟/g,'?').replace(/؛/g,';');
+}
+var ATTRS=['placeholder','title','alt','aria-label'];
+function node(n){
+  if(n.nodeType===3){
+    var p=n.parentNode;if(!p||/^(SCRIPT|STYLE)$/.test(p.nodeName))return;
+    var v=n.nodeValue;
+    if(n._en!==undefined&&v===n._en)return;
+    if(AR.test(v)){n._ar=v;var o=tr(v);n._en=o;if(o!==v)n.nodeValue=o}
+  }else if(n.nodeType===1){
+    if(/^(SCRIPT|STYLE|SVG)$/i.test(n.nodeName))return;
+    ATTRS.forEach(function(a){var v=n.getAttribute(a);if(v&&AR.test(v)){var k='_a'+a;if(n[k]===undefined||n[k+'e']!==v){n[k]=v;var o=tr(v);n[k+'e']=o;n.setAttribute(a,o)}}});
+    if(n.nodeName==='INPUT'&&/^(submit|button)$/.test(n.type)&&AR.test(n.value)){n._av=n.value;n.value=tr(n.value)}
+    for(var c=n.firstChild;c;c=c.nextSibling)node(c);
+  }
+}
+function revert(n){
+  if(n.nodeType===3){if(n._ar!==undefined&&n.nodeValue===n._en)n.nodeValue=n._ar;}
+  else if(n.nodeType===1){
+    ATTRS.forEach(function(a){var k='_a'+a;if(n[k]!==undefined&&n.getAttribute(a)===n[k+'e'])n.setAttribute(a,n[k])});
+    if(n._av!==undefined)n.value=n._av;
+    for(var c=n.firstChild;c;c=c.nextSibling)revert(c);
+  }
+}
+var T0=document.title,M=document.querySelector('meta[name=description]'),M0=M&&M.content;
+function apply(){
+  busy=true;
+  var d=document.documentElement;d.lang=en?'en':'ar';d.dir=en?'ltr':'rtl';
+  if(en){node(document.body);document.title=tr(T0);if(M)M.content=tr(M0)}
+  else{revert(document.body);document.title=T0;if(M)M.content=M0}
+  var b=document.getElementById('i18n-btn');if(b)b.textContent=en?'عربي':'EN';
+  busy=false;d.classList.remove('i18n-pending');
+}
+var mo=new MutationObserver(function(ms){
+  if(busy||!en)return;busy=true;
+  ms.forEach(function(m){
+    if(m.type==='characterData')node(m.target);
+    else if(m.type==='attributes')node(m.target);
+    else m.addedNodes.forEach(node);
+  });busy=false;
+});
+function init(){
+  var b=document.createElement('button');b.id='i18n-btn';b.type='button';b.setAttribute('aria-label','Language');
+  b.style.cssText='position:fixed;z-index:99999;bottom:14px;inset-inline-end:14px;font:600 13px/1 system-ui,sans-serif;padding:9px 13px;border-radius:999px;border:1px solid rgba(128,128,128,.45);background:rgba(20,20,20,.82);color:#fff;cursor:pointer;backdrop-filter:blur(6px)';
+  b.onclick=function(){en=!en;try{localStorage.setItem('lang',en?'en':'ar')}catch(e){}apply()};
+  document.body.appendChild(b);
+  apply();
+  mo.observe(document.body,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:ATTRS});
+}
+['alert','confirm','prompt'].forEach(function(k){var f=window[k];window[k]=function(m){return f.call(window,en&&typeof m==='string'?tr(m):m)}});
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();

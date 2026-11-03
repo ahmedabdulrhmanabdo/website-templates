@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<head><script>/*i18n*/try{if((localStorage.getItem("lang")||"en")!=="ar"){var h=document.documentElement;h.classList.add("i18n-pending");h.lang="en";h.dir="ltr";setTimeout(function(){h.classList.remove("i18n-pending")},2500)}}catch(e){}</script><style>.i18n-pending body{visibility:hidden}</style><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>🔐 مولّد كلمات المرور</title><style>*{box-sizing:border-box;margin:0}
 :root{--a:#4f46e5;--bg:#f1f5f9;--card:#fff;--ink:#0f172a;--mut:#64748b;--line:#e2e8f0}
 body{font-family:system-ui,'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:grid;place-items:start center;padding:24px 14px;line-height:1.6}
@@ -27,4 +27,4 @@ function gen(){let pool='';for(const k in S)if($(k).checked)pool+=S[k];if(!pool)
  const bits=n*Math.log2(pool.length),p=Math.min(100,bits/1.28);$('st').style.width=p+'%';$('st').style.background=p<40?'#ef4444':p<70?'#f59e0b':'#16a34a';$('sl').textContent=p<40?'ضعيفة':p<70?'متوسطة':'قوية'}
 $('g').onclick=gen;$('len').oninput=gen;document.querySelectorAll('.chk input').forEach(c=>c.onchange=gen);
 $('cp').onclick=async()=>{try{await navigator.clipboard.writeText($('o').value);$('cp').textContent='تم ✓'}catch{$('o').select()}setTimeout(()=>$('cp').textContent='نسخ',1200)};gen();
-</script></body></html>
+</script><script src="../i18n.js"></script></body></html>

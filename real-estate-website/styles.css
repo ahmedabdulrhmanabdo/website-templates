@@ -102,3 +102,4 @@ h2.sec,.sub{text-align:start}.sub{margin-inline:0}
 .mut{color:var(--mut)}.h2{font-size:1.6rem}
 @media(max-width:900px){.shop,.pd{grid-template-columns:1fr}.side{position:static}.search{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.search{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}.mres{grid-template-columns:1fr}}
+.page-hero h1{color:#fff}.page-hero p{color:rgba(255,255,255,.72)}.page-hero .crumb,.page-hero .crumb a{color:rgba(255,255,255,.65)}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="ar" dir="rtl"><head><script>/*i18n*/try{if((localStorage.getItem("lang")||"en")!=="ar"){var h=document.documentElement;h.classList.add("i18n-pending");h.lang="en";h.dir="ltr";setTimeout(function(){h.classList.remove("i18n-pending")},2500)}}catch(e){}</script><style>.i18n-pending body{visibility:hidden}</style><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>نظام نقاط البيع (سطح المكتب) | أحمد عبدالرحمن</title><meta name="description" content="لقطات من نظام نقاط بيع لسطح المكتب: مبيعات، باركود، دفع، إيصال ضريبي، مخزون وتقارير.">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>[data-count]{direction:ltr;unicode-bidi:isolate}
@@ -33,4 +33,4 @@ footer{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 40px;colo
 <div class="lb" id="lb" hidden><button id="lx" aria-label="إغلاق">✕</button><div><img id="li" alt=""><p id="lt"></p></div></div>
 <script>document.getElementById('y').textContent=new Date().getFullYear();const lb=document.getElementById('lb');
 document.querySelectorAll('.shot').forEach(b=>b.onclick=()=>{document.getElementById('li').src=b.dataset.s;document.getElementById('lt').textContent=b.dataset.t;lb.hidden=false});
-const cl=()=>lb.hidden=true;document.getElementById('lx').onclick=cl;lb.onclick=e=>{if(e.target===lb)cl()};document.addEventListener('keydown',e=>{if(e.key==='Escape')cl()});</script></body></html>
+const cl=()=>lb.hidden=true;document.getElementById('lx').onclick=cl;lb.onclick=e=>{if(e.target===lb)cl()};document.addEventListener('keydown',e=>{if(e.key==='Escape')cl()});</script><script src="i18n.js"></script></body></html>

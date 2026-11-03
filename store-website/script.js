@@ -14,7 +14,7 @@ $$('[data-count]').forEach(e=>cio.observe(e));
 function toast(m){let t=$('.toast');if(!t){t=document.createElement('div');t.className='toast';document.body.appendChild(t)}t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2200)}
 $$('form[data-form]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const m=$('.form-msg',f);
  if(!f.checkValidity()){f.reportValidity&&f.reportValidity();if(m)m.textContent='يرجى تعبئة الحقول المطلوبة بشكل صحيح.';return}
- if(m)m.textContent=f.dataset.ok||'تم الإرسال (نموذج، لا تُرسل بيانات لأي خادم).';f.reset()}));
+ if(m)m.textContent=f.dataset.ok||'تم الإرسال.';f.reset()}));
 $$('[data-copy]').forEach(b=>b.onclick=async()=>{try{await navigator.clipboard.writeText(b.dataset.copy);toast('تم نسخ الكود: '+b.dataset.copy)}catch{toast('الكود: '+b.dataset.copy)}});
 const qs=new URLSearchParams(location.search);
 
@@ -135,7 +135,7 @@ if($('#cobox')){const sum=()=>{const ex=document.querySelector('[name=ship]:chec
   if(!$('#cn').value.trim()||!/^05\d{8}$/.test($('#cp').value.trim())||!$('#cd2').value.trim()||!$('#ca').value.trim()){m.textContent='أكمل بيانات الشحن ورقم جوال صحيح (05xxxxxxxx).';return}
   const T=totals(document.querySelector('[name=ship]:checked').value==='exp',document.querySelector('[name=pay]:checked').value==='cod'),no='ST-'+Math.random().toString(36).slice(2,8).toUpperCase();
   cart=[];sv('st_cart',cart);sv('st_coupon','');badges();
-  $('#cobox').innerHTML=`<div class="ok card" style="grid-column:1/-1"><div class="big">✅</div><h2>شكرًا لطلبك يا ${$('#cn').value.trim().replace(/</g,'')}!</h2><p>رقم طلبك: <code>${no}</code></p><p class="mut" style="margin-top:6px">الإجمالي ${money(T.tot)} · التوصيل المتوقع خلال 2–4 أيام (طلب)</p><p style="margin-top:16px"><a class="btn" href="support.html">تتبّع الطلب</a> <a class="btn btn-o" href="shop.html">متابعة التسوق</a></p></div>`}}
+  $('#cobox').innerHTML=`<div class="ok card" style="grid-column:1/-1"><div class="big">✅</div><h2>شكرًا لطلبك يا ${$('#cn').value.trim().replace(/</g,'')}!</h2><p>رقم طلبك: <code>${no}</code></p><p class="mut" style="margin-top:6px">الإجمالي ${money(T.tot)} · التوصيل المتوقع خلال 2–4 أيام</p><p style="margin-top:16px"><a class="btn" href="support.html">تتبّع الطلب</a> <a class="btn btn-o" href="shop.html">متابعة التسوق</a></p></div>`}}
 
 // ---------- support ----------
 const FAQ={ship:[['كم تستغرق مدة التوصيل؟','من 2 إلى 4 أيام عمل داخل المدن الرئيسية، وحتى 7 أيام للمناطق الأخرى.'],['كم تكلفة الشحن؟','25 ر.س، ومجاني للطلبات فوق 300 ر.س أو بكود FREESHIP.'],['هل يوجد شحن سريع؟','نعم، شحن خلال 24 ساعة بإضافة 20 ر.س في المدن الكبرى.']],
@@ -146,4 +146,4 @@ if($('#fq')){const d=g=>$('#fq').innerHTML=FAQ[g].map(([q,a])=>`<details class="
 if($('#trf')){$('#trf').onsubmit=e=>{e.preventDefault();const v=$('#trn').value.trim().toUpperCase();
   if(!/^ST-[A-Z0-9]{4,8}$/.test(v)){$('#trres').innerHTML='<p class="form-msg" style="color:#ef4444">رقم الطلب غير صحيح. الصيغة: ST-XXXXXX</p>';return}
   const n=[...v].reduce((a,c)=>a+c.charCodeAt(0),0)%4,steps=['تم استلام الطلب','جاري التجهيز','تم الشحن','تم التسليم'];
-  $('#trres').innerHTML=`<p style="margin-top:12px"><b>الطلب ${v}</b> — الحالة: <span class="badge">${steps[n]}</span></p><div class="tl2">${steps.map((s,i)=>`<div class="${i<=n?'d':''}">${s}</div>`).join('')}</div><small class="mut">حالةة للتوضيح فقط.</small>`}}
+  $('#trres').innerHTML=`<p style="margin-top:12px"><b>الطلب ${v}</b> — الحالة: <span class="badge">${steps[n]}</span></p><div class="tl2">${steps.map((s,i)=>`<div class="${i<=n?'d':''}">${s}</div>`).join('')}</div>`}}
