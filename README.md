@@ -15,5 +15,13 @@
 | [law-firm-website](law-firm-website) | مكتب محاماة (5 صفحات: مجالات، فريق، طلب استشارة) |
 | [real-estate-website](real-estate-website) | مكتب عقاري (5 صفحات: عقارات بفلاتر، تفاصيل، حاسبة تمويل) |
 | [hospital-system](hospital-system) | نظام إدارة مستشفى (ويب): مرضى، مواعيد، أسرّة، صيدلية، فواتير |
-| [pos-desktop](pos-desktop) | نظام نقاط بيع لسطح المكتب (لقطات + واجهةة) |
+| [pos-desktop](pos-desktop) | نظام نقاط بيع لسطح المكتب (لقطات + واجهة) |
 | [apps](apps) | 8 تطبيقات ويب صغيرة: مهام، حاسبة، بومودورو، مصروفات، ملاحظات، اختبار، محوّل وحدات، مولّد كلمات مرور |
+
+## الترخيص
+
+© 2016–2026 أحمد عبدالرحمن. جميع الحقوق محفوظة. لا يجوز نسخ أو تعديل أو إعادة نشر أو استضافة أي جزء من هذا المحتوى دون إذن كتابي مسبق. التفاصيل في ملف [LICENSE](LICENSE).
+
+## License
+
+© 2016–2026 Ahmed Abdulrahman. All rights reserved. No part of this content may be copied, modified, republished or hosted without prior written permission. See [LICENSE](LICENSE).
