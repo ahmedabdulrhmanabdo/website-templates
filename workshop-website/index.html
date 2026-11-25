@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ورشة المحرك الذهبي | صيانة وإصلاح السيارات</title>
+<meta name="description" content="ورشة متكاملة لصيانة وإصلاح السيارات: ميكانيكا، كهرباء، تكييف، فحص كمبيوتر وتغيير زيوت.">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#10151c;--panel:#18202b;--line:rgba(255,255,255,.1);--ink:#eef2f6;--mut:#9aa8b6;--a:#f5a524;--a2:#ffcf6b}
+*{box-sizing:border-box;margin:0}
+body{font-family:Cairo,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.8}
+a{color:inherit;text-decoration:none}
+.w{width:min(1080px,100% - 32px);margin-inline:auto}
+header.top{position:sticky;top:0;z-index:10;background:rgba(16,21,28,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .w{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.15rem}
+.logo svg{width:30px;height:30px;color:var(--a)}
+nav{display:flex;gap:22px;color:var(--mut)}nav a:hover{color:var(--a)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--a);color:#1a1200;padding:10px 20px;border-radius:10px;font-weight:700;border:0;cursor:pointer}
+.btn.o{background:transparent;color:var(--a);border:1.5px solid var(--a)}
+.hero{padding:56px 0 40px}
+.hero .w{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.kick{display:inline-block;color:var(--a2);border:1px solid rgba(245,165,36,.4);border-radius:99px;padding:2px 14px;font-size:.88rem}
+h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.3;margin:12px 0 10px;font-weight:800}
+h1 b{color:var(--a)}
+.hero p.lead{color:var(--mut);font-size:1.08rem;max-width:480px;margin-bottom:20px}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+.hero figure{background:linear-gradient(160deg,#1c2634,#121821);border:1px solid var(--line);border-radius:20px;padding:12px;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.hero figure svg{width:100%;height:auto;display:block;border-radius:12px}
+.stats{border-block:1px solid var(--line);background:var(--panel)}
+.stats .w{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;padding:22px 0}
+.stats b{display:block;font-size:1.9rem;color:var(--a)}.stats span{color:var(--mut);font-size:.9rem}
+section.s{padding:56px 0 8px}
+h2{font-size:1.8rem;font-weight:800}h2 em{color:var(--a);font-style:normal}
+.sub{color:var(--mut);margin:4px 0 24px}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;transition:.2s}
+.card:hover{border-color:var(--a);transform:translateY(-3px)}
+.card svg{width:34px;height:34px;color:var(--a);margin-bottom:8px}
+.card h3{font-size:1.1rem;margin-bottom:4px}.card p{color:var(--mut);font-size:.94rem}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.why li{list-style:none;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;gap:10px}
+.why li::before{content:"";flex:none;width:10px;height:10px;margin-top:10px;border-radius:50%;background:var(--a)}
+.contact{margin:56px 0 0;background:linear-gradient(135deg,#231a05,#18202b);border:1px solid rgba(245,165,36,.35);border-radius:20px;padding:34px;display:grid;grid-template-columns:1.2fr 1fr;gap:26px}
+.contact h2{margin-bottom:6px}
+.info div{display:flex;gap:10px;align-items:center;margin:8px 0;color:var(--ink)}
+.info svg{width:22px;height:22px;color:var(--a);flex:none}
+.phone{display:block;font-size:1.7rem;font-weight:800;color:var(--a);direction:ltr;text-align:right}
+footer{margin-top:50px;border-top:1px solid var(--line);padding:22px 0 34px;color:var(--mut);font-size:.9rem;text-align:center}
+@media(max-width:860px){.hero .w,.contact,.why{grid-template-columns:1fr}nav{display:none}.stats .w{grid-template-columns:1fr 1fr;gap:12px}}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="w">
+  <a class="logo" href="#top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg>
+    ورشة المحرك الذهبي
+  </a>
+  <nav><a href="#services">خدماتنا</a><a href="#why">لماذا نحن</a><a href="#contact">تواصل</a></nav>
+  <a class="btn" href="#contact">احجز موعدًا</a>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="w">
+  <div>
+    <span class="kick">صيانة · إصلاح · فحص</span>
+    <h1>سيارتك في <b>أيدٍ أمينة</b> وبأسعار واضحة</h1>
+    <p class="lead">ورشة متكاملة لصيانة وإصلاح السيارات بفنيين ذوي خبرة، وفحص بالكمبيوتر، وقطع غيار مضمونة. نخبرك بالتكلفة قبل أن نبدأ.</p>
+    <div class="acts">
+      <!-- استبدل الرقم التالي برقمك الحقيقي -->
+      <a class="btn" href="#contact">اتصل بنا: <span dir="ltr">0500 000 000</span></a>
+      <a class="btn o" href="#services">تعرف على خدماتنا</a>
+    </div>
+  </div>
+  <figure aria-label="رسم توضيحي لورشة سيارات">
+    <svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" role="img">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#26364b"/><stop offset="1" stop-color="#151d29"/></linearGradient>
+        <linearGradient id="car" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5a524"/><stop offset="1" stop-color="#c77f0b"/></linearGradient>
+      </defs>
+      <rect width="640" height="420" fill="url(#sky)"/>
+      <!-- building -->
+      <rect x="60" y="70" width="520" height="270" rx="10" fill="#202b3a" stroke="#34455c" stroke-width="2"/>
+      <rect x="60" y="70" width="520" height="38" rx="10" fill="#f5a524"/>
+      <text x="320" y="96" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="800" font-size="20" fill="#1a1200">ورشة المحرك الذهبي</text>
+      <!-- garage doors -->
+      <g fill="#2c3a4f" stroke="#40536d" stroke-width="2">
+        <rect x="100" y="140" width="200" height="200"/><rect x="340" y="140" width="200" height="200"/>
+      </g>
+      <g stroke="#40536d" stroke-width="2">
+        <path d="M100 180h200M100 220h200M100 260h200M100 300h200M340 180h200M340 220h200M340 260h200M340 300h200"/>
+      </g>
+      <!-- open bay with car -->
+      <rect x="340" y="140" width="200" height="200" fill="#121821"/>
+      <g>
+        <path d="M352 318v-34c0-8 6-14 14-16l28-6 20-26c4-5 10-8 17-8h46c8 0 15 4 19 10l16 22 22 6c6 2 10 8 10 14v38z" fill="url(#car)"/>
+        <path d="M418 258l12-18c2-3 5-4 8-4h38c3 0 6 2 8 4l12 18z" fill="#bcd6ee" opacity=".85"/>
+        <circle cx="392" cy="322" r="17" fill="#0e131b" stroke="#6b7c92" stroke-width="3"/><circle cx="392" cy="322" r="6" fill="#6b7c92"/>
+        <circle cx="500" cy="322" r="17" fill="#0e131b" stroke="#6b7c92" stroke-width="3"/><circle cx="500" cy="322" r="6" fill="#6b7c92"/>
+      </g>
+      <!-- lift -->
+      <rect x="355" y="334" width="170" height="6" fill="#51657f"/>
+      <!-- tools on the left -->
+      <g transform="translate(150 190)" stroke="#f5a524" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <path d="M20 80l60-60"/><circle cx="86" cy="14" r="14" fill="#202b3a"/>
+        <path d="M70 90l38-38" stroke="#9aa8b6"/><path d="M104 46l12-12" stroke="#9aa8b6"/>
+      </g>
+      <!-- road -->
+      <rect x="0" y="340" width="640" height="80" fill="#0e131b"/>
+      <path d="M0 380h640" stroke="#f5a524" stroke-width="3" stroke-dasharray="26 22"/>
+      <!-- gear -->
+      <g transform="translate(560 40)" fill="none" stroke="#f5a524" stroke-width="3">
+        <circle r="14"/><circle r="6"/>
+        <path d="M0-24v8M0 16v8M-24 0h8M16 0h8M-17-17l6 6M11 11l6 6M17-17l-6 6M-11 11l-6 6"/>
+      </g>
+    </svg>
+  </figure>
+</div></section>
+
+<div class="stats"><div class="w">
+  <div><b>+10</b><span>سنوات خبرة</span></div>
+  <div><b>+5000</b><span>سيارة تمت صيانتها</span></div>
+  <div><b>6</b><span>أيام عمل أسبوعيًا</span></div>
+  <div><b>24س</b><span>رد على الاستفسارات</span></div>
+</div></div>
+
+<section class="s" id="services"><div class="w">
+  <h2>خدمات <em>الورشة</em></h2>
+  <p class="sub">كل ما تحتاجه سيارتك تحت سقف واحد</p>
+  <div class="g">
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg><h3>صيانة المحرك</h3><p>إصلاح وصيانة شاملة للمحرك وناقل الحركة.</p></div>
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><h3>كهرباء السيارات</h3><p>فحص وإصلاح البطارية والدينامو والإضاءة.</p></div>
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M5 7l14 10M19 7L5 17"/></svg><h3>تكييف السيارات</h3><p>تعبئة الفريون وإصلاح التسريب وتنظيف المكيف.</p></div>
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><h3>فحص بالكمبيوتر</h3><p>تشخيص دقيق للأعطال قبل أي إصلاح.</p></div>
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-4 5-6 8-6 11a6 6 0 0 0 12 0c0-3-2-6-6-11z"/></svg><h3>تغيير الزيوت والفلاتر</h3><p>زيوت أصلية وفلاتر بحسب توصية الشركة المصنعة.</p></div>
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/></svg><h3>فرامل وإطارات</h3><p>فحص الفرامل وضبط الزوايا وموازنة الإطارات.</p></div>
+  </div>
+</div></section>
+
+<section class="s" id="why"><div class="w">
+  <h2>لماذا <em>تختارنا</em>؟</h2>
+  <p class="sub">نعمل بوضوح، ونلتزم بما نعد به</p>
+  <ul class="why">
+    <li>تسعيرة واضحة تُعرض عليك قبل بدء العمل.</li>
+    <li>قطع غيار مضمونة مع فاتورة رسمية.</li>
+    <li>فنيون متخصصون في كل نوع من الأعطال.</li>
+    <li>نخبرك بحالة سيارتك أولًا بأول.</li>
+  </ul>
+</div></section>
+
+<section class="w" id="contact"><div class="contact">
+  <div>
+    <h2>احجز <em>موعدك</em> الآن</h2>
+    <p class="sub">اتصل بنا أو زرنا في الورشة</p>
+    <!-- استبدل الرقم التالي برقمك الحقيقي، وعدّل الرابط ليصبح tel:+9665XXXXXXXX -->
+    <a class="phone" href="tel:0500000000">0500 000 000</a>
+  </div>
+  <div class="info">
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>المدينة الصناعية، [اسم مدينتك]</div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>السبت إلى الخميس: 8 ص – 10 م</div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>info@example.com</div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="w">© <span id="yr"></span> ورشة المحرك الذهبي. جميع الحقوق محفوظة.</div></footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
+</body>
+</html>
